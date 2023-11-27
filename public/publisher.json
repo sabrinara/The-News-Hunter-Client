@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "publisher_name": "Akkash",
+        "publisher_image": "https://i.ibb.co/1TY7khd/1.jpg"
+    },
+    {
+        "id": 2,
+        "publisher_name": "Sokhina",
+        "publisher_image": "https://i.ibb.co/dB00xST/2.jpg"
+    },
+    {
+        "id": 3,
+        "publisher_name": "Jkkash",
+        "publisher_image": "https://i.ibb.co/8P7mQ4v/3.jpg"
+    },
+    {
+        "id": 4,
+        "publisher_name": "kkash",
+        "publisher_image": "https://i.ibb.co/bmjhxyD/4.jpg"
+    },
+    {
+        "id": 5,
+        "publisher_name": "Mkkash",
+        "publisher_image": "https://i.ibb.co/StMTwYv/6.jpg"
+    },
+    {
+        "id": 6,
+        "publisher_name": "Jorina",
+        "publisher_image": "https://i.ibb.co/jvV2NWv/5.jpg"
+    }
+]
