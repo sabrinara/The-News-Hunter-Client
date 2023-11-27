@@ -78,7 +78,7 @@ const NavBar = ({ toggleTheme }) => {
     );
 
     return (
-        <div className=" sticky top-0 z-50 " >
+        <div className=" " >
             <div className="navbar  p-4 ">
                 <div className="navbar-start">
                     <div className="dropdown">
