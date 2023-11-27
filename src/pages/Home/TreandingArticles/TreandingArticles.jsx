@@ -40,9 +40,10 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ArticleCard from "../../AllArticle/ArticleCard";
+import AritcleCard from "../../AllArticle/AritcleCard";
 
-const TrendingArticles = () => {
+
+const TreandingArticles = () => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
@@ -65,17 +66,17 @@ const TrendingArticles = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-16">
                 {articles.slice(0, 6).map((article, index) => (
                     <div key={index}>
-                        <ArticleCard article={article} />
+                       <AritcleCard article={article}> </AritcleCard>
                     </div>
                 ))}
             </div>
             <div className="flex justify-center mt-16">
                 <Link to="/allarticles">
-                    <button className="btn bg-sky-600 hover:bg-sky-500 text-white rounded">View All Services</button>
+                    <button className="btn bg-sky-600 hover:bg-sky-500 text-white rounded">View All News</button>
                 </Link>
             </div>
         </div>
     );
 };
 
-export default TrendingArticles;
+export default TreandingArticles;
