@@ -43,7 +43,7 @@ const routes = createBrowserRouter([
                 element: <AllArticles></AllArticles>
             },
             {
-                path: "/details",
+                path: "/details/:id",    
                 element: <Details></Details>
             },
             {
