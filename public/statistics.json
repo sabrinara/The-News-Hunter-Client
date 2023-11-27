@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "name": "All Users",
+        "number": 750,
+        "image": "https://i.ibb.co/8PdZxD7/ALL.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Normal Users",
+        "number": 400,
+        "image": "https://i.ibb.co/5GyxXkZ/normal.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Premimum Users",
+        "number": 350,
+        "image": "https://i.ibb.co/MNvLxLS/premium.jpg"
+    }
+  
+]
