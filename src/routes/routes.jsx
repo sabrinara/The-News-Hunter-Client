@@ -12,6 +12,7 @@ import PremiumArticles from "../pages/AllArticle/PreminumArticles.jsx/PremiumArt
 import Details from "../pages/AllArticle/ArticleDetails/Details";
 import PrivateRouters from "./PrivateRoute";
 import Register from "../components/Register/Register";
+import DashBoard from "../layout/DashBoard";
 
 
 
@@ -65,6 +66,10 @@ const routes = createBrowserRouter([
           
         ]
     },
+    {
+        path: "/dashboard",
+        element:<PrivateRouters><DashBoard></DashBoard></PrivateRouters>
+    }
 ])
 
 export default routes;

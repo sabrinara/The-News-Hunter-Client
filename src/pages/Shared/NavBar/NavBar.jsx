@@ -26,10 +26,10 @@ const NavBar = ({ toggleTheme }) => {
                         <NavLink to="/addarticle">Add Article</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/PremiumArticles">Premium Articles</NavLink>
+                        <NavLink to="/premium">Premium Articles</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/Subscription">Premium Articles</NavLink>
+                        <NavLink to="/subscriptions">Subscription</NavLink>
                     </li>
                     <li>
                         <NavLink to="/myarticles">My Articles</NavLink>

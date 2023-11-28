@@ -20,14 +20,18 @@ const AddArticle = () => {
         const publisher_image = form.publisher.image.value;
         const description = form.description.value;
         const tags = form.tags.value;
-
+        const email = user?.email;
+        const status = "pending";
+        
         const newArticle = {
             title,
             image,
             publisher_name,
             publisher_image,
             description,
-            tags
+            tags,
+            status,
+            email
         }
 
         fetch("http://localhost:5000/news", {
