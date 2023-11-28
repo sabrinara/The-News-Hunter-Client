@@ -2,19 +2,20 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/news.png";
 import { AuthContext } from "../../providers/AuthProvider";
-import { FcGoogle } from 'react-icons/fc';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import HelmetKiller from "../../pages/Shared/HelmetKiller/HelmetKIller";
+import axios from "axios";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
 
-    const { createUser, googleSignIn, handleUpdateProfile } = useContext(AuthContext);
+    const { createUser,  handleUpdateProfile } = useContext(AuthContext);
     const navigate = useNavigate();
 
 
 
-    const handleRegister = async (e) => {  // Using async function to handle promises
+    const handleRegister = async (e) => {
         e.preventDefault();
 
         const form = new FormData(e.currentTarget);
@@ -22,7 +23,7 @@ const Register = () => {
         const photo = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
-        
+
 
         try {
             if (password.length < 6) {
@@ -37,29 +38,27 @@ const Register = () => {
 
             await createUser(email, password);
             await handleUpdateProfile(name, photo);
-
-
-            toast.success('Successfully Registered');
-            navigate('/');
+            //create user entry into the database
+            const userInfo = {
+                name: name,
+                email: email,
+            }
+            axios.post('http://localhost:5000/users', userInfo)
+                .then(res => {
+                    console.log(res);
+                    toast.success('Successfully Registered');
+                   
+                })
+              
+                navigate('/');
         } catch (error) {
             toast.error(error.message);
         }
     }
-    const handleGoogleRegister = () => {
-        googleSignIn()
-            .then((result) => {
-                console.log(result.user)
-                toast('Successfully Login');
-
-            })
-            .catch(error => {
-                console.error(error);
-                toast('Login failed. Please check your email and password.');
-            });
-    }
+    
     return (
         <div >
-             <HelmetKiller pagename = "Register"></HelmetKiller>
+            <HelmetKiller pagename="Register"></HelmetKiller>
             <div className="hero min-h-screen bg-base-200 mb-8" >
                 <div className="hero-content flex-col ">
                     <div className="text-center mt-8 mb-4">
@@ -94,7 +93,7 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name="password" placeholder="Write Your Password" className="input input-bordered mb-3" required />
-                               
+
                             </div>
                             <div className="form-control mt-1">
                                 <button className="p-3  bg-sky-200 text-sky-800 font-extrabold  rounded-md">Register</button>
@@ -105,14 +104,7 @@ const Register = () => {
                         <div className="flex flex-col items-center justify-center mb-6">
                             <p className="text-[15px]">Already have an account? Please<Link to="/login"><button className="p-1 text-blue-700 font-bold">Login</button></Link></p>
                             <div className="divider ">Or, Continue With</div>
-                            <button
-                                type="button"
-                                onClick={handleGoogleRegister}
-                                className="btn bg-sky-200 text-sky-800 font-extrabold   rounded-md flex justify-center items-center p-2 px-20 lg:px-52 "
-                            >
-                                Google
-                                <FcGoogle className="w-8 h-8" />
-                            </button>
+                           <SocialLogin></SocialLogin>
                         </div>
                     </div>
                 </div>

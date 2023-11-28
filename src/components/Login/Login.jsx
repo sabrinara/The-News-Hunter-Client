@@ -3,13 +3,14 @@ import { Link,  useNavigate } from "react-router-dom";
 import Logo from "../../assets/news.png";
 import { AuthContext } from "../../providers/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
-import { FcGoogle } from 'react-icons/fc';
+
 import 'react-toastify/dist/ReactToastify.css';
 import HelmetKiller from "../../pages/Shared/HelmetKiller/HelmetKIller";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
 
-    const { signIn, googleSignIn } = useContext(AuthContext);
+    const { signIn} = useContext(AuthContext);
     const navigate = useNavigate();
 
 
@@ -34,18 +35,7 @@ const Login = () => {
                 toast('Login failed. Please check your email and password.');
             });
     }
-    const handleGoogleSignIn = () => {
-        googleSignIn()
-            .then((result) => {
-                console.log(result.user)
-                toast('Successfully Login');
-                navigate('/');
-            })
-            .catch(error => {
-                console.error(error);
-                toast('Login failed. Please check your email and password.');
-            });
-    }
+    
     return (
         <div>
             <HelmetKiller pagename = "Login"></HelmetKiller>
@@ -85,14 +75,7 @@ const Login = () => {
                             <p className="text-[15px]">New in the Website? Please<Link to="/register"><button className="p-1 text-blue-700 font-bold">Register</button></Link></p>
                         
                             <div className="divider ">Or, Continue With</div>
-                            <button
-                                type="button"
-                                onClick={handleGoogleSignIn} 
-                                className="btn bg-sky-200 text-sky-800 font-extrabold   rounded-md flex justify-center items-center p-2 px-16 lg:px-52 "
-                            >
-                                Google
-                                <FcGoogle className="w-8 h-8" />
-                            </button>
+                           <SocialLogin></SocialLogin>
                         </div>
                     </div>
                 </div>

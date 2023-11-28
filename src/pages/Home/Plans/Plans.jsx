@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Plans = () => {
@@ -28,7 +29,7 @@ const Plans = () => {
                     </div>
 
                     <div className="card-actions justify-center my-3">
-                        <button className="btn rounded-full bg-white text-cyan-700 px-28">Try for free 1 month </button>
+                      <Link to="/subscriptions"  className="btn rounded-full bg-white text-cyan-700 px-16">Get Try for free 1 month</Link> 
                     </div>
                     <div className="text-center text-sm">
                         <p>Free for 1 month, then $10.99/month after. Offer only available if you haven't tried Premium before. <u>Terms apply.</u></p>
@@ -38,7 +39,7 @@ const Plans = () => {
             <div className="card shadow-2xl shadow-black w-96 bg-gray-800 text-white">
                 <div className="card-body border-2 rounded-xl  border-white">
                 
-                    <div className="flex mt-4 mb-20">
+                    <div className="flex mt-4 mb-10">
                         <h2 className="card-title font-bold">Premium Duo</h2>
                         <p className="text-lg font-bold text-right">$14.99 <br /><small className="text-sm">PER MONTH</small></p>
                     </div>
@@ -56,7 +57,8 @@ const Plans = () => {
                     </div>
 
                     <div className="card-actions justify-center my-3">
-                        <button className="btn rounded-full bg-white text-cyan-700 px-28">Get Premium Duo </button>
+                    <Link to="/subscriptions"  className="btn rounded-full bg-white text-cyan-700 px-20">Get Premium Duo</Link> 
+                    
                     </div>
                     <div className="text-center text-sm">
                         <p>For couples who reside at the same address. <u>Terms apply.</u></p>
@@ -66,7 +68,7 @@ const Plans = () => {
             <div className="card shadow-2xl shadow-black w-96 bg-gray-800 text-white">
                 <div className="card-body border-2 rounded-xl  border-white">
                 
-                    <div className="flex mt-4 mb-4">
+                    <div className="flex mt-4 mb-2">
                         <h2 className="card-title font-bold">Premium Family</h2>
                         <p className="text-lg font-bold text-right">$16.99 <br /><small className="text-sm">PER MONTH</small></p>
                     </div>
@@ -90,7 +92,7 @@ const Plans = () => {
                     </div>
 
                     <div className="card-actions justify-center my-3">
-                        <button className="btn rounded-full bg-white text-cyan-700 px-28">Get Premium Duo </button>
+                    <Link to="/subscriptions"  className="btn rounded-full bg-white text-cyan-700 px-20">Get Premium Family</Link> 
                     </div>
                     <div className="text-center text-sm">
                         <p>For up to 6 family members residing at the same address. <u>Terms apply.</u></p>

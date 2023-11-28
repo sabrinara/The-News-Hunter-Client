@@ -164,7 +164,7 @@ const MyArticles = () => {
                                                 <div className="modal-action">
                                                     <form id="updateForm" method="dialog" onSubmit={(e) => {
                                                         e.preventDefault();
-                                                        handleUpdateClick(article._id);
+                                                        handleUpdateClick(article);
                                                     }}>
                                                         <div className="flex  gap-2 ">
                                                             <div className="form-control">
