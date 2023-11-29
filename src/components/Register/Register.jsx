@@ -42,6 +42,7 @@ const Register = () => {
             const userInfo = {
                 name: name,
                 email: email,
+                image: photo,
                 role : '',
             }
             axios.post('http://localhost:5000/users', userInfo)

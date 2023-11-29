@@ -40,50 +40,40 @@ const MyArticles = () => {
         console.log('Details button clicked for article:', article);
     };
 
-    const handleUpdateClick = (article) => {
-        //handle update button
-        const form = document.getElementById("updateForm");
-        const formData = new FormData(form);
+    const handleUpdateClick = (articleId) => {
+        // Update the selectedArticle state
+        setSelectedArticle(articles.find(article => article._id === articleId));
+        // Open the update modal
+        document.getElementById("my_modal_5").showModal();
+    };
 
-        fetch(`http://localhost:5000/news/${article._id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title: formData.get('title'),
-                image: formData.get('image'),
-                description: formData.get('description'),
-                tags: formData.get('tags'),
-                status: formData.get('status'),
-            }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                //update article state with updated data
-                const updatedArticle = articles.map(a => a._id === data._id ? data : a);
-                setArticles(updatedArticle);
-                Swal.fire({
-                    position: 'top-center',
-                    icon: 'success',
-                    title: 'Article updated successfully',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            })
-            .catch(error => {
-                console.error(error);
-                Swal.fire({
-                    position: 'top-center',
-                    icon: 'error',
-                    title: 'Failed to update article',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            })
-        document.getElementById("my_modal_5").close();
-        console.log('Update button clicked for article:', selectedArticle);
-    }
+    // Complete the handleUpdateSubmit function
+    const handleUpdateSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const updatedArticle = {
+                title: e.target.title.value,
+                image: e.target.image.value,
+                description: e.target.description.value,
+                // ... add other fields as needed
+            };
+
+            // Send PATCH request to update the article
+            await axios.put(`http://localhost:5000/news/${selectedArticle._id}`, updatedArticle);
+
+            // Update the selectedArticle state
+            setSelectedArticle(updatedArticle);
+            //reset the form
+            e.target.reset();
+            // Close the modal after successful update
+            document.getElementById("my_modal_5").close();
+            // Refresh articles data
+           
+        } catch (error) {
+            console.error('Error updating article:', error);
+        }
+    };
 
 
 
@@ -117,11 +107,7 @@ const MyArticles = () => {
        
     };
 
-    const handleDeclineReasonClick = (reason) => {
-        // Handle decline reason button click
-        setDeclineReason(reason);
-        setModalOpen(true);
-    };
+
 
     return (
         <div>
@@ -148,13 +134,14 @@ const MyArticles = () => {
                                 <td>
                                     <button className="btn mx-10 bg-emerald-600 hover:bg-emerald-500 text-white rounded" onClick={() => handleDetailsClick(article)}> Details</button>
                                 </td>
-                                <td className="py-2 px-8 border-b border-sky-400 mx- ">{article.status}</td>
-                                <td>{article.isPremium ? 'Yes' : 'No'}</td>
+                                <td className="py-2 px-8 border-b border-sky-400 mx-10 ">{article.status}</td>
+                                <td>{ 
+                                article.status === "premium" ? 'Yes' : 'No'}</td>
                                 <td>
                                     <div>
                                         <button
                                             className="btn rounded mx-10 bg-blue-600 text-white hover:bg-blue-500"
-                                            onClick={() => document.getElementById("my_modal_5").showModal()}
+                                            onClick={() => handleUpdateClick(article._id)}
                                         >
                                             Update
                                         </button>
@@ -162,10 +149,7 @@ const MyArticles = () => {
                                             <div className="modal-box">
 
                                                 <div className="modal-action">
-                                                    <form id="updateForm" method="dialog" onSubmit={(e) => {
-                                                        e.preventDefault();
-                                                        handleUpdateClick(article);
-                                                    }}>
+                                                    <form id="updateForm" method="dialog" onSubmit={handleUpdateSubmit}>
                                                         <div className="flex  gap-2 ">
                                                             <div className="form-control">
                                                                 <label className="label">
@@ -180,9 +164,7 @@ const MyArticles = () => {
                                                                 <input type="text" name="image" className="input input-bordered" placeholder="Article Image" defaultValue={article.image} required />
                                                             </div>
                                                         </div>
-                                                        <div>
-                                                            
-                                                        </div>
+                                                        
 
                                                         <div>
                                                             <div className="form-control">
