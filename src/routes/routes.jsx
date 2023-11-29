@@ -16,6 +16,8 @@ import DashBoard from "../layout/DashBoard";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AllArticlesAdmin from "../pages/Dashboard/AllArticlesAdmin/AllArticlesAdmin";
 import AddPublisher from "../pages/Dashboard/AddPublisher/AddPublisher";
+import Statistics from "../pages/Dashboard/Statistics/Statistics";
+import Charts from "../pages/Dashboard/Charts";
 
 
 
@@ -28,15 +30,15 @@ const routes = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader : () => fetch('http://localhost:5000/news')
+                loader: () => fetch('http://localhost:5000/news')
             },
             {
                 path: '/login',
-                element:<Login></Login>
+                element: <Login></Login>
             },
             {
                 path: "/register",
-                element:<Register></Register>
+                element: <Register></Register>
             },
             {
                 path: "/addarticle",
@@ -47,7 +49,7 @@ const routes = createBrowserRouter([
                 element: <AllArticles></AllArticles>
             },
             {
-                path: "/details/:id",    
+                path: "/details/:id",
                 element: <Details></Details>
             },
             {
@@ -66,28 +68,34 @@ const routes = createBrowserRouter([
                 path: "/premium",
                 element: <PrivateRouters> <PremiumArticles></PremiumArticles></PrivateRouters>
             },
-          
+
+            {
+                path: "/dashboard",
+                element: <PrivateRouters><DashBoard></DashBoard></PrivateRouters>,
+            },
+            {
+                path:"/statistics",
+                element:<Statistics></Statistics>,
+            },
+            {
+                path: "/charts",
+                element:<Charts></Charts>
+            },
+            {
+                path: "/allusers",
+                element: <AllUsers></AllUsers>
+            },
+            {
+                path: "/allarticlesadmin",
+                element: <AllArticlesAdmin></AllArticlesAdmin>
+            },
+            {
+                path: "/addpublishers",
+                element: <AddPublisher></AddPublisher>
+            }
         ]
     },
-    {
-        path: "dashboard",
-        element:<PrivateRouters><DashBoard></DashBoard></PrivateRouters>,
-        errorElement: <ErrorPage></ErrorPage>,
-        children: [
-          {
-            path: "allusers",
-            element: <AllUsers></AllUsers>
-          },
-          {
-            path:"allarticlesadmin",
-            element: <AllArticlesAdmin></AllArticlesAdmin>
-          },
-          {
-              path: "addpublishers",
-              element: <AddPublisher></AddPublisher>
-          }
-        ]
-    }
+
 ])
 
 export default routes;

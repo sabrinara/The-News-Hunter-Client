@@ -4,7 +4,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import Logo from "../../../assets/news.png"
 
 const NavBar = ({ toggleTheme }) => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, role } = useContext(AuthContext);
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -12,7 +12,7 @@ const NavBar = ({ toggleTheme }) => {
                 console.error(error);
             });
     }
-    // const [isAdmin ] = true;
+console.log("The is  ", role)
     const navLinks = (
         <>
             <li>
@@ -35,8 +35,19 @@ const NavBar = ({ toggleTheme }) => {
                     <li>
                         <NavLink to="/myarticles">My Articles</NavLink>
                     </li>
+                    {
+                        role === "admin" &&
+                        <>
+                            <li>
+                                <NavLink to="/dashboard">Dashboard</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/statistics">Statistics</NavLink>
+                            </li>
+                        </>
+                    }
                     <li>
-                        <NavLink to="/dashboard">Dashboard</NavLink>
+                        <NavLink to= "/charts">Charts</NavLink>
                     </li>
                     <li>
                         <a onClick={handleLogOut}>Logout</a>
