@@ -12,6 +12,7 @@ const NavBar = ({ toggleTheme }) => {
                 console.error(error);
             });
     }
+    // const [isAdmin ] = true;
     const navLinks = (
         <>
             <li>
@@ -40,6 +41,23 @@ const NavBar = ({ toggleTheme }) => {
                     <li>
                         <a onClick={handleLogOut}>Logout</a>
                     </li>
+                    {/* {isAdmin ?
+                        <>
+                            <li>
+                                <NavLink to="/dashboard">Dashboard</NavLink>
+                            </li>
+                            <li>
+                                <a onClick={handleLogOut}>Logout</a>
+                            </li>
+                        </>
+                        :
+                        <>
+                            <li>
+                                <a onClick={handleLogOut}>Logout</a>
+                            </li>
+                        </>
+                    } */}
+
                 </>
                 :
                 <>
@@ -62,15 +80,15 @@ const NavBar = ({ toggleTheme }) => {
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                
-                                <NavLink to = "/myprofile"><img src={user.photoURL}  /></NavLink>
+
+                                <NavLink to="/myprofile"><img src={user.photoURL} /></NavLink>
                             </div>
                         </label>
                     </div>
 
                     :
 
-                        <NavLink to="/login">Login</NavLink>
+                    <NavLink to="/login">Login</NavLink>
 
             }
 

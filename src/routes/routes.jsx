@@ -13,6 +13,9 @@ import Details from "../pages/AllArticle/ArticleDetails/Details";
 import PrivateRouters from "./PrivateRoute";
 import Register from "../components/Register/Register";
 import DashBoard from "../layout/DashBoard";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AllArticlesAdmin from "../pages/Dashboard/AllArticlesAdmin/AllArticlesAdmin";
+import AddPublisher from "../pages/Dashboard/AddPublisher/AddPublisher";
 
 
 
@@ -67,8 +70,23 @@ const routes = createBrowserRouter([
         ]
     },
     {
-        path: "/dashboard",
-        element:<PrivateRouters><DashBoard></DashBoard></PrivateRouters>
+        path: "dashboard",
+        element:<PrivateRouters><DashBoard></DashBoard></PrivateRouters>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
+          {
+            path: "allusers",
+            element: <AllUsers></AllUsers>
+          },
+          {
+            path:"allarticlesadmin",
+            element: <AllArticlesAdmin></AllArticlesAdmin>
+          },
+          {
+              path: "addpublishers",
+              element: <AddPublisher></AddPublisher>
+          }
+        ]
     }
 ])
 
