@@ -18,6 +18,7 @@ import AllArticlesAdmin from "../pages/Dashboard/AllArticlesAdmin/AllArticlesAdm
 import AddPublisher from "../pages/Dashboard/AddPublisher/AddPublisher";
 import Statistics from "../pages/Dashboard/Statistics/Statistics";
 import Charts from "../pages/Dashboard/Charts";
+import PaymentPage from "../pages/Payment/PaymentPage";
 
 
 
@@ -92,6 +93,10 @@ const routes = createBrowserRouter([
             {
                 path: "/addpublishers",
                 element: <AddPublisher></AddPublisher>
+            },
+            {
+                path:"/payment",
+                element:<PaymentPage></PaymentPage>
             }
         ]
     },
