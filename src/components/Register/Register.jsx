@@ -20,7 +20,7 @@ const Register = () => {
 
         const form = new FormData(e.currentTarget);
         const name = form.get('name');
-        const photo = form.get('photo');
+        const image = form.get('image');
         const email = form.get('email');
         const password = form.get('password');
 
@@ -37,15 +37,15 @@ const Register = () => {
             }
 
             await createUser(email, password);
-            await handleUpdateProfile(name, photo);
+            await handleUpdateProfile(name, image);
             //create user entry into the database
             const userInfo = {
                 name: name,
                 email: email,
-                image: photo,
+                image: image,
                 role : '',
             }
-            axios.post('http://localhost:5000/users', userInfo)
+            axios.post('https://the-news-hunter-server-lac.vercel.app/users', userInfo)
                 .then(res => {
                     console.log(res);
                     toast.success('Successfully Registered');
@@ -82,7 +82,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Profile Picture</span>
                                 </label>
-                                <input type="text" name="photo" placeholder="PhotoUrl" className="input input-bordered" required />
+                                <input type="text" name="image" placeholder="PhotoUrl" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">

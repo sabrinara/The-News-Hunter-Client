@@ -1,13 +1,11 @@
-
 import { useContext } from "react";
 import HelmetKiller from "../Shared/HelmetKiller/HelmetKIller";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useState } from "react";
-import { useEffect,} from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2';
-
 
 const MyArticles = () => {
     const { user } = useContext(AuthContext);
@@ -17,37 +15,33 @@ const MyArticles = () => {
     const [selectedArticle, setSelectedArticle] = useState(null);
     const navigate = useNavigate();
 
-
-
     useEffect(() => {
-
-        axios.get('http://localhost:5000/news')
+        axios.get('https://the-news-hunter-server-lac.vercel.app/news')
             .then(response => {
-                setArticles(response.data)
-                // const filteredData = response.data.filter(
-                //     (article) => article.email === user.email
-                // );
-                // setArticles(filteredData);
-                // console.log(filteredData);
+                console.log(response.data);
+                console.log(user?.email);
 
+                // Filter articles based on the user's email
+                const filteredData = response.data.filter(article => article.email?.email === user?.email);
+
+                setArticles(filteredData);
+                console.log(filteredData);
             })
-    }, []);
+            .catch(error => {
+                console.error('Error fetching news data:', error);
+            });
+    }, [user?.email]); // Make sure to include user?.email in the dependency array
 
     const handleDetailsClick = (article) => {
         navigate(`/details/${article._id}`);
-
-
         console.log('Details button clicked for article:', article);
     };
 
     const handleUpdateClick = (articleId) => {
-        // Update the selectedArticle state
         setSelectedArticle(articles.find(article => article._id === articleId));
-        // Open the update modal
         document.getElementById("my_modal_5").showModal();
     };
 
-    // Complete the handleUpdateSubmit function
     const handleUpdateSubmit = async (e) => {
         e.preventDefault();
 
@@ -60,26 +54,22 @@ const MyArticles = () => {
             };
 
             // Send PATCH request to update the article
-            await axios.put(`http://localhost:5000/news/${selectedArticle._id}`, updatedArticle);
+            await axios.put(`https://the-news-hunter-server-lac.vercel.app/news/${selectedArticle._id}`, updatedArticle);
 
             // Update the selectedArticle state
             setSelectedArticle(updatedArticle);
-            //reset the form
+            // reset the form
             e.target.reset();
-            // Close the modal after successful update
+            // Close the modal after a successful update
             document.getElementById("my_modal_5").close();
             // Refresh articles data
-           
+
         } catch (error) {
             console.error('Error updating article:', error);
         }
     };
 
-
-
-
     const handleDeleteClick = (article) => {
-        // Handle delete button click
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -90,7 +80,7 @@ const MyArticles = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/news/${article._id}`)
+                axios.delete(`https://the-news-hunter-server-lac.vercel.app/news/${article._id}`)
                     .then(response => {
                         if (response.data.deletedCount === 1) {
                             setArticles(prevArticles => prevArticles.filter(prevArticle => prevArticle._id !== article._id));
@@ -104,15 +94,18 @@ const MyArticles = () => {
                     .catch(error => console.error('Error deleting article:', error));
             }
         })
-       
     };
 
-
+    const handleDeclineClick = (reason) => {
+        setModalOpen(true);
+        setDeclineReason(reason);
+    };
 
     return (
         <div>
             <HelmetKiller pagename="My Articles"></HelmetKiller>
             <h1 className="text-7xl font-bold my-16 text-center">My Articles</h1>
+            {articles?.length === 0 && <h1 className="text-3xl font-bold my-16 text-center">No Articles Found</h1>}
             <div className="flex justify-center items-center">
                 <table>
                     <thead className="w-full border border-sky-400 ">
@@ -135,8 +128,7 @@ const MyArticles = () => {
                                     <button className="btn mx-10 bg-emerald-600 hover:bg-emerald-500 text-white rounded" onClick={() => handleDetailsClick(article)}> Details</button>
                                 </td>
                                 <td className="py-2 px-8 border-b border-sky-400 mx-10 ">{article.status}</td>
-                                <td>{ 
-                                article.status === "premium" ? 'Yes' : 'No'}</td>
+                                <td>{article.status === "premium" ? 'Yes' : 'No'}</td>
                                 <td>
                                     <div>
                                         <button
@@ -155,39 +147,42 @@ const MyArticles = () => {
                                                                 <label className="label">
                                                                     <span className="label-text">Article Title</span>
                                                                 </label>
-                                                                <input type="text" name="title" className="input input-bordered" placeholder="Article Title" defaultValue={article.title} required />
+                                                                <input type="text" name="title" className="input input-bordered" placeholder="Article Title" defaultValue={selectedArticle?.title} required />
                                                             </div>
                                                             <div className="form-control ml-2">
                                                                 <label className="label">
                                                                     <span className="label-text">Article Image</span>
                                                                 </label>
-                                                                <input type="text" name="image" className="input input-bordered" placeholder="Article Image" defaultValue={article.image} required />
+                                                                <input type="text" name="image" className="input input-bordered" placeholder="Article Image" defaultValue={selectedArticle?.image} required />
                                                             </div>
                                                         </div>
-                                                        
 
                                                         <div>
                                                             <div className="form-control">
                                                                 <label className="label">
                                                                     <span className="label-text">Article Description</span>
                                                                 </label>
-                                                                <input type="text" name="description" className="input input-bordered" placeholder="Write Description" defaultValue={article.description} required />
+                                                                <input type="text" name="description" className="input input-bordered" placeholder="Write Description" defaultValue={selectedArticle?.description} required />
                                                             </div>
                                                         </div>
 
-                                                       
-                                                       
                                                         <button className="btn rounded mt-4 w-full text-white bg-blue-400 hover:bg-blue-600">Update</button>
                                                     </form>
                                                 </div>
                                             </div>
                                         </dialog>
                                     </div>
-
                                 </td>
                                 <td>
-
                                     <button className="btn bg-red-500 hover:bg-red-700 text-white rounded mx-8" onClick={() => handleDeleteClick(article)}>Delete</button>
+                                    {article.status === "declined" && (
+                                        <button
+                                            className="btn mx-2 bg-red-600 text-white rounded"
+                                            onClick={() => handleDeclineClick(article.declineReason)}
+                                        >
+                                            Declined
+                                        </button>
+                                    )}
                                 </td>
                             </tr>
                         ))}
@@ -203,7 +198,6 @@ const MyArticles = () => {
                     </div>
                 )}
             </div>
-
         </div>
     );
 };

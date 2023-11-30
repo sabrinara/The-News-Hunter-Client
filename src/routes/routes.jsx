@@ -16,9 +16,7 @@ import DashBoard from "../layout/DashBoard";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AllArticlesAdmin from "../pages/Dashboard/AllArticlesAdmin/AllArticlesAdmin";
 import AddPublisher from "../pages/Dashboard/AddPublisher/AddPublisher";
-import Statistics from "../pages/Dashboard/Statistics/Statistics";
-import Charts from "../pages/Dashboard/Charts";
-import PaymentPage from "../pages/Payment/PaymentPage";
+
 
 
 
@@ -31,7 +29,7 @@ const routes = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/news')
+                loader: () => fetch('https://the-news-hunter-server-lac.vercel.app/news')
             },
             {
                 path: '/login',
@@ -74,30 +72,20 @@ const routes = createBrowserRouter([
                 path: "/dashboard",
                 element: <PrivateRouters><DashBoard></DashBoard></PrivateRouters>,
             },
-            {
-                path:"/statistics",
-                element:<Statistics></Statistics>,
-            },
-            {
-                path: "/charts",
-                element:<Charts></Charts>
-            },
+            
             {
                 path: "/allusers",
-                element: <AllUsers></AllUsers>
+                element: <PrivateRouters><AllUsers></AllUsers></PrivateRouters>
             },
             {
                 path: "/allarticlesadmin",
-                element: <AllArticlesAdmin></AllArticlesAdmin>
+                element: <PrivateRouters><AllArticlesAdmin></AllArticlesAdmin></PrivateRouters>
             },
             {
                 path: "/addpublishers",
-                element: <AddPublisher></AddPublisher>
+                element:<PrivateRouters> <AddPublisher></AddPublisher></PrivateRouters>
             },
-            {
-                path:"/payment",
-                element:<PaymentPage></PaymentPage>
-            }
+          
         ]
     },
 

@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
     const [role, getRole] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users`)
+        fetch(`https://the-news-hunter-server-lac.vercel.app/users`)
             .then(res => res.json())
             .then(data => {
                 const filteredData = data.find(u => u.email === user.email);

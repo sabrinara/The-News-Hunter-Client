@@ -14,7 +14,7 @@ const Home = () => {
     // const [article, setArticle] = useState([]);
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/news')
+    //     fetch('https://the-news-hunter-server-lac.vercel.app/news')
     //         .then(res => res.json())
     //         .then(data => setArticle(data))
     //         .catch(error => console.error(error));

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import HelmetKiller from "../Shared/HelmetKiller/HelmetKIller";
 import Logo from "../../assets/news.png"
 import { AuthContext } from "../../providers/AuthProvider";
@@ -6,40 +6,47 @@ import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 
 const AddArticle = () => {
-    const { user } = useContext(AuthContext);
-    // console.log(user);
 
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const [publishers, setPublishers] = useState([]);
+    const [selectedPublisher, setSelectedPublisher] = useState("");
+
+    useEffect(() => {
+        // Fetch publishers from the server
+        fetch("https://the-news-hunter-server-lac.vercel.app/publisher")
+            .then(res => res.json())
+            .then(data => setPublishers(data))
+            .catch(error => console.error('Error fetching publishers:', error));
+    }, []);
 
     const handleAddArticle = (event) => {
         event.preventDefault();
+
         const form = event.target;
         const title = form.title.value;
         const image = form.image.value;
-        const publisher_name = form.publisher.name.value;
-        const publisher_image = form.publisher.image.value;
+        const publisher_name = selectedPublisher.name;
+        const publisher_image = selectedPublisher.image;
         const description = form.description.value;
         const tags = form.tags.value;
         const email = user?.email;
         const status = "pending";
-        
-        const newArticle = {
-            title,
-            image,
-            publisher_name,
-            publisher_image,
-            description,
-            tags,
-            status,
-            email
-        }
 
-        fetch("http://localhost:5000/news", {
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("image", image);
+        formData.append("publisher_name", publisher_name);
+        formData.append("publisher_image", publisher_image);
+        formData.append("description", description);
+        formData.append("tags", tags);
+        formData.append("status", status);
+        formData.append("email", email);
+
+        fetch("https://the-news-hunter-server-lac.vercel.app/news", {
             method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(newArticle)
+            body: formData,
         })
             .then(res => res.json())
             .then(data => {
@@ -47,19 +54,20 @@ const AddArticle = () => {
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success',
-                        text: 'Product Added into My Cart Sucessfully!',
+                        text: 'Article Added Successfully!',
                         icon: 'success',
                         confirmButtonText: 'Cool!',
-                    })
+                    });
                     navigate('/allarticles');
                 }
             })
             .catch(error => {
-                console.log(error);
-            })
+                console.error('Error adding article:', error);
+            });
 
         form.reset();
     }
+
     return (
         <div>
             <HelmetKiller pagename="Add Article"></HelmetKiller>
@@ -88,17 +96,29 @@ const AddArticle = () => {
                                 <label className="label">
                                     <span className="label-text">Article Image</span>
                                 </label>
-                                <input type="text" name="photo" placeholder="PhotoUrl" className="input input-bordered" required />
+                                <input type="text" name="image" placeholder="Image URL" className="input input-bordered" required />
                             </div>
-
 
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Article Publisher Name</span>
+                                    <span className="label-text">Article Publisher</span>
                                 </label>
-                                <input type="name"
-                                    className="input input-bordered" name='publisher_name' value={user?.displayName} />
+                                <select
+                                    name="publisher"
+                                    className="input input-bordered"
+                                    onChange={(e) => setSelectedPublisher(JSON.parse(e.target.value))}
+                                    required
+                                >
+                                    <option value="" disabled selected>Select Publisher</option>
+                                    {publishers.map(publisher => (
+                                        <option key={publisher._id} value={JSON.stringify(publisher)}>
+                                            {publisher.name}
+                                        </option>
+                                    ))}
+                                </select>
                             </div>
+
+                           
 
                             <div className="form-control">
                                 <label className="label">

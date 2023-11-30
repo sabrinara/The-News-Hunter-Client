@@ -5,11 +5,11 @@ const Plans = () => {
     return (
        <div className="my-20">
         <h1 className="text-7xl mb-20 font-bold text-center">Our Plans</h1>
-         <div className="grid grid-cols-1  lg:grid-cols-3 gap-10 mx-28 md:mx-44">
-            <div className="card shadow-2xl shadow-black w-96 bg-gray-800 text-white">
+         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-10 mx-28 md:mx-44">
+            <div className="card shadow-2xl shadow-black  bg-gray-800 text-white">
                 <div className="card-body border-2 rounded-xl  border-white">
                     <div className="mt-4">
-                        <p className="bg-white text-cyan-900 font-bold mr-44 px-1 py-1">Free For 1 Month</p>
+                        <p className=" font-bold  px-1 py-1">Free For 1 Month</p>
                     </div>
                     <div className="flex my-3">
                         <h2 className="card-title font-bold">Premium <br />Indivitual</h2>
@@ -36,7 +36,7 @@ const Plans = () => {
                     </div>
                 </div>
             </div>
-            <div className="card shadow-2xl shadow-black w-96 bg-gray-800 text-white">
+            <div className="card shadow-2xl shadow-black bg-gray-800 text-white">
                 <div className="card-body border-2 rounded-xl  border-white">
                 
                     <div className="flex mt-4 mb-10">
@@ -65,7 +65,7 @@ const Plans = () => {
                     </div>
                 </div>
             </div>
-            <div className="card shadow-2xl shadow-black w-96 bg-gray-800 text-white">
+            <div className="card shadow-2xl shadow-black  bg-gray-800 text-white">
                 <div className="card-body border-2 rounded-xl  border-white">
                 
                     <div className="flex mt-4 mb-2">

@@ -12,7 +12,7 @@ const NavBar = ({ toggleTheme }) => {
                 console.error(error);
             });
     }
-console.log("The is  ", role)
+    console.log("The is  ", role)
     const navLinks = (
         <>
             <li>
@@ -41,34 +41,13 @@ console.log("The is  ", role)
                             <li>
                                 <NavLink to="/dashboard">Dashboard</NavLink>
                             </li>
-                            <li>
-                                <NavLink to="/statistics">Statistics</NavLink>
-                            </li>
+                        
                         </>
                     }
-                    <li>
-                        <NavLink to= "/charts">Charts</NavLink>
-                    </li>
+                    
                     <li>
                         <a onClick={handleLogOut}>Logout</a>
                     </li>
-                    {/* {isAdmin ?
-                        <>
-                            <li>
-                                <NavLink to="/dashboard">Dashboard</NavLink>
-                            </li>
-                            <li>
-                                <a onClick={handleLogOut}>Logout</a>
-                            </li>
-                        </>
-                        :
-                        <>
-                            <li>
-                                <a onClick={handleLogOut}>Logout</a>
-                            </li>
-                        </>
-                    } */}
-
                 </>
                 :
                 <>
@@ -108,13 +87,13 @@ console.log("The is  ", role)
 
     return (
         <div className=" " >
-            <div className="navbar  p-4 ">
-                <div className="navbar-start">
-                    <div className="dropdown">
-                        <label tabIndex={0} className="btn btn-outline btn-info lg:hidden">
+            <div className="navbar  p-4  md:flex md:justify-between">
+                <div className="navbar-start md:hidden">
+                    <div className="dropdown md:hidden">
+                        <label tabIndex={0} className="btn btn-outline btn-info md:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 md:hidden">
                             {navLinks}
                         </ul>
                     </div>
@@ -126,7 +105,7 @@ console.log("The is  ", role)
                         The News <span className="text-red-600">Hunter</span></Link>
                 </div>
                 <div className="navbar-end ">
-                    <div className="flex-none gap-2 lg:hidden">
+                    <div className="flex-none gap-2 md:hidden">
                         {profileNavLinks}
                     </div>
                 </div>
@@ -142,7 +121,7 @@ console.log("The is  ", role)
                 </label>
             </div>
             <div className="w-full h-[1px] bg-cyan-300 my-2"></div>
-            <div className="justify-between items-center mx-10  hidden lg:flex">
+            <div className="justify-between items-center mx-10  hidden md:flex">
                 <div className="flex justify-center ">
                     <ul className="menu menu-horizontal  px-1 gap-6">
                         {navLinks}

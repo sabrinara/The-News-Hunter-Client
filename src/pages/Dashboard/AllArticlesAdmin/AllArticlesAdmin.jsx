@@ -12,7 +12,7 @@ const AllArticlesAdmin = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/news");
+      const response = await axios.get("https://the-news-hunter-server-lac.vercel.app/news");
       setProducts(response.data);
     } catch (error) {
       console.error(error);
@@ -20,7 +20,7 @@ const AllArticlesAdmin = () => {
   };
 
   const handleApproval =  (articleId, status) => {
-   fetch(`http://localhost:5000/news/${articleId}`, {
+   fetch(`https://the-news-hunter-server-lac.vercel.app/news/${articleId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const AllArticlesAdmin = () => {
   };
 
   const handleDecline = (articleId) => {
-    fetch(`http://localhost:5000/news/${articleId}`, {
+    fetch(`https://the-news-hunter-server-lac.vercel.app/news/${articleId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +82,7 @@ const AllArticlesAdmin = () => {
   };
 
   const handleMakePremium = (articleId) => {
-   fetch(`http://localhost:5000/news/${articleId}`, {
+   fetch(`https://the-news-hunter-server-lac.vercel.app/news/${articleId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

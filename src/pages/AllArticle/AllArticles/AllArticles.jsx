@@ -8,7 +8,7 @@
 //     const [searchTerm, setSearchTerm] = useState('');
 
 //     useEffect(() => {
-//         fetch('http://localhost:5000/news')
+//         fetch('https://the-news-hunter-server-lac.vercel.app/news')
 //             .then(res => res.json())
 //             .then(data => setArticles(data))
 //     }, []);
@@ -62,7 +62,7 @@ const AllArticles = () => {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/news?page=${page}&search=${searchTerm}`);
+                const response = await fetch(`https://the-news-hunter-server-lac.vercel.app/news?page=${page}&search=${searchTerm}`);
                 const data = await response.json();
 
                 if (data.length === 0) {
@@ -78,7 +78,6 @@ const AllArticles = () => {
 
         fetchArticles();
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page, searchTerm]);
 
     window.onscroll = () => {

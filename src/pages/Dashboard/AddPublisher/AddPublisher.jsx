@@ -18,7 +18,7 @@ const navigate = useNavigate();
            
         }
 
-        fetch("http://localhost:5000/publisher", {
+        fetch("https://the-news-hunter-server-lac.vercel.app/publisher", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -55,24 +55,24 @@ const navigate = useNavigate();
 
             <form onSubmit={handleFormSubmit}>
                 <div className="mb-4">
-                    <label htmlFor="publisherName" className="block text-sm font-medium text-gray-700">
+                    <label  className="block text-sm font-medium text-gray-700">
                         Publisher Name
                     </label>
                     <input
                         type="text"
-                        id="publisherName"
+                      
                         name='publisher_name'
                         className="mt-1 p-2 border w-full"
                     />
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="publisherLogo" className="block text-sm font-medium text-gray-700">
-                        Publisher Logo (Image URL)
+                    <label className="block text-sm font-medium text-gray-700">
+                        Publisher Image
                     </label>
                     <input
                         type="text"
-                        id="publisherLogo"
+                        
                         name='publisher_image'
                         className="mt-1 p-2 border w-full"
                     />
@@ -80,7 +80,7 @@ const navigate = useNavigate();
 
                 <button
                     type="submit"
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+                    className="btn btn-primarypx-4 py-2 rounded-md "
                 >
                     Add Publisher
                 </button>

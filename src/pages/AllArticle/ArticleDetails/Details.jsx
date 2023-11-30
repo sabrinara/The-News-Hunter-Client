@@ -12,14 +12,14 @@
     
 
 //     useEffect(() => {
-//         fetch(`http://localhost:5000/news/${id}`)
+//         fetch(`https://the-news-hunter-server-lac.vercel.app/news/${id}`)
 //             .then(res => res.json())
 //             .then(data => setArticle(data))
 //     }, [id])
 //     const { title, content, image, publisher  } = article || {};
 
 //     // update view count
-//     // fetch(`http://localhost:5000/news/${id}/views`, {
+//     // fetch(`https://the-news-hunter-server-lac.vercel.app/news/${id}/views`, {
 //     //     method: "PUT"
 //     // })
 //     //     .then(res => res.json())
@@ -66,7 +66,7 @@ const Details = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/news/${id}`)
+        fetch(`https://the-news-hunter-server-lac.vercel.app/news/${id}`)
             .then(res => res.json())
             .then(data => setArticle(data));
     }, [id]);
@@ -74,7 +74,7 @@ const Details = () => {
     const { title, content, image, publisher } = article || {};
 
     useEffect(() => {
-        fetch(`http://localhost:5000/news/view/${id}`, {
+        fetch(`https://the-news-hunter-server-lac.vercel.app/news/view/${id}`, {
             method: "PUT"
         })
             .then(res => res.json())

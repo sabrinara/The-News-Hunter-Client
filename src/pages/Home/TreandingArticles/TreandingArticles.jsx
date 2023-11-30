@@ -6,7 +6,7 @@
 //     // const [article, setArticles] = useState([]);
 
 //     // useEffect(() => {
-//     //     fetch("http://localhost:5000/news")
+//     //     fetch("https://the-news-hunter-server-lac.vercel.app/news")
 //     //         .then((res) => res.json())
 //     //         .then((data) => setArticles(data));
 //     // })
@@ -47,7 +47,7 @@ const TreandingArticles = () => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/news")
+        fetch("https://the-news-hunter-server-lac.vercel.app/news")
             .then((res) => res.json())
             .then((data) => {
                 const articlesWithTotalViews = data.map((article) => ({

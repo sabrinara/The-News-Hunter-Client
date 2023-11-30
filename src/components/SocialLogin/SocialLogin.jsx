@@ -18,13 +18,13 @@ const SocialLogin = () => {
                     name: result.user?.displayName,
                     image: result.user?.photoURL
                 }
-                axios.post('http://localhost:5000/users', userInfo)
+                axios.post('https://the-news-hunter-server-lac.vercel.app/users', userInfo)
                     .then(res => {
                         console.log(res);
                         toast.success('Successfully Login');
-
+                        navigate('/');
                     })
-            navigate('/');
+
 
             })
             .catch(error => {

@@ -4,7 +4,7 @@ const AllPublisher = () => {
     const [newPublisher, setNewPublisher] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/publisher")
+        fetch("https://the-news-hunter-server-lac.vercel.app/publisher")
             .then((res) => res.json())
             .then((data) => setNewPublisher(data));
     }, []);
