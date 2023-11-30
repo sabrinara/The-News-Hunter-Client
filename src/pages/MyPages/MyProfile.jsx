@@ -9,7 +9,7 @@ const MyProfile = () => {
     name: user?.name || "", // Initialize with the user's name
     image: user?.image || "", // Initialize with the user's image
   });
-console.log(user)
+  console.log(user)
   const handleUpdate = (event) => {
     event.preventDefault();
     fetch(`https://the-news-hunter-server-lac.vercel.app/users/${user?.email}`, {
@@ -35,37 +35,56 @@ console.log(user)
 
   return (
     <div className="container mx-auto mt-10 p-4">
-      <h2 className="text-2xl font-semibold mb-4">My Profile</h2>
-      <form action="" onSubmit={handleUpdate}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Name</span>
-            </label>
-            <input
-              type="text"
-              placeholder={user?.displayName}
-              className="input input-bordered"
-           
-              onChange={(e) => setUpdateForm({ ...updateForm, name: e.target.value })}
-            />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Image</span>
-            </label>
-            <input
-              type="text"
-              placeholder={user?.photoURL}
-              className="input input-bordered"
-              onChange={(e) => setUpdateForm({ ...updateForm, image: e.target.value })}
-            />
+      <h2 className="text-6xl font-semibold mb-10 text-center ">My Profile</h2>
+      <div className="flex justify-center items-center gap-10">
+        <div className="flex flex-cols justify-center items-center my-10">
+          <div className="card w-96 bg-sky-200 text-black shadow-xl ">
+            <div className="card-body">
+              <figure><img className="w-64 h-64 " src={user?.photoURL} alt="Shoes" /></figure>
+              <h2 className="card-title">Name: {user?.displayName}</h2>
+              <p className="text-xl">Email: {user?.email}</p>
+            </div>
+
           </div>
         </div>
-        <button type="submit" className="btn btn-primary mt-4">
-          Update Profile
-        </button>
-      </form>
+        <div className="flex flex-cols justify-center items-center my-10">
+          <div className="card w-96 bg-sky-200 text-black shadow-2xl p-20">
+            <form action="" onSubmit={handleUpdate}>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder={user?.displayName}
+                  className="input input-bordered"
+
+                  onChange={(e) => setUpdateForm({ ...updateForm, name: e.target.value })}
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Image</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder={user?.photoURL}
+                  className="input input-bordered"
+                  onChange={(e) => setUpdateForm({ ...updateForm, image: e.target.value })}
+                />
+              </div>
+
+              <button type="submit" className="btn btn-primary mt-4">
+                Update Profile
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
   );
 };
