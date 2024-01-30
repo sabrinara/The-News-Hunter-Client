@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import HelmetKiller from "../../Shared/HelmetKiller/HelmetKIller";
-import AritcleCard from "../AritcleCard";
+// import AritcleCard from "../AritcleCard";
 import { Link } from "react-router-dom";
 
 const PremiumArticles = () => {
