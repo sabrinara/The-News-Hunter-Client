@@ -63,15 +63,15 @@ const Sponsoprs = () => {
 
     ]
     return (
-        <div>
+        <div className="flex flex-col justify-center items-center">
             <h1 className="text-7xl font-bold text-center my-28">Our Sponsors</h1>
-               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mx-40 md:mx-20">
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8  md:mx-40">
             {
                 sponsor.map((sponsor) => (
                     <div key={sponsor.id}>
-                      <div className="card w-80 bg-teal-100 shadow-xl rounded">
-                        <figure className="px-10 py-20">
-                            <img className="rounded-xl h-44" src={sponsor.image} alt="Shoes"/>
+                      <div className="card w-60 bg-teal-100 shadow-xl rounded">
+                        <figure className="px-6 py-20">
+                            <img className="rounded-xl h-28" src={sponsor.image} />
                         </figure>
                        
                     </div>

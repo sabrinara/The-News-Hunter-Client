@@ -46,20 +46,20 @@ const PremiumArticles = () => {
                                     <h1 className="card-title text-3xl">{article.title}.</h1>
                                     <div className="flex flex-col   justify-center items-center ">
                                         <img
-                                            alt=""
-                                            src={article.publisher.image}
+                                            alt="publisher"
+                                            src={article.publisher}
                                             className="relative inline-block h-[50px] w-[50px] rounded-full border-2 border-cyan-600 object-cover object-center"
                                         />
-                                        <h5 className="mb-4 font-sans text-lg font-semibold ">
+                                        {/* <h5 className="mb-4 font-sans text-lg font-semibold ">
                                             {article.publisher.name}
-                                        </h5>
+                                        </h5> */}
                                     </div>
                                     <div className="card-actions justify-center ">
                                         <Link to={`/details/${article._id}`} className="">
                                             <button
                                                 className="px-4 py-2 rounded text-white hover:text-white bg-red-600 hover:bg-sky-500"
                                             >
-                                                View Details
+                                               Details View 
                                             </button>
                                         </Link>
                                     </div>
