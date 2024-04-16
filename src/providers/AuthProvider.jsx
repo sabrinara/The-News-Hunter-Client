@@ -25,8 +25,8 @@ const AuthProvider = ({ children }) => {
         fetch(`https://the-news-hunter-server-lac.vercel.app/users`)
             .then(res => res.json())
             .then(data => {
-                const filteredData = data.find(u => u.email === user.email);
-               console.log(filteredData);
+               const filteredData = data.find(u => u.email === user?.email);
+            //    console.log(filteredData);
                getRole(filteredData?.role);
                 
             })
@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            console.log('user in the auth state changed', currentUser);
+            // console.log('user in the auth state changed', currentUser);
             setUser(currentUser);
             setLoading(false);
         });

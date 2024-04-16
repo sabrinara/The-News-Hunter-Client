@@ -40,7 +40,7 @@ const MyProfile = () => {
         <div className="flex flex-cols justify-center items-center my-10">
           <div className="card w-96 bg-sky-200 text-black shadow-xl ">
             <div className="card-body">
-              <figure><img className="w-64 h-64 " src={user?.photoURL} alt="Shoes" /></figure>
+              <figure><img className="w-64 h-64 " src={user?.photoURL} alt="image" /></figure>
               <h2 className="card-title">Name: {user?.displayName}</h2>
               <p className="text-xl">Email: {user?.email}</p>
             </div>
