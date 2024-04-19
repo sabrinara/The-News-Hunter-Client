@@ -1,5 +1,5 @@
 # The News Hunter
-## Live-Link: https://unique-malasada-354e4c.netlify.app/  or https://the-news-hunter-e9341.web.app/
+## Live-Link: https://the-news-hunter.netlify.app
 
 ### Features-
 - A Full Stack Newspaper Web Application.
