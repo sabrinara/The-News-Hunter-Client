@@ -41,10 +41,10 @@ const NavBar = ({ toggleTheme }) => {
                             <li>
                                 <NavLink to="/dashboard">Dashboard</NavLink>
                             </li>
-                        
+
                         </>
                     }
-                    
+
                     <li>
                         <a onClick={handleLogOut}>Logout</a>
                     </li>
@@ -54,6 +54,9 @@ const NavBar = ({ toggleTheme }) => {
 
                     <li>
                         <NavLink to="/register">Register</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/login">Login</NavLink>
                     </li>
 
                 </>
@@ -65,28 +68,31 @@ const NavBar = ({ toggleTheme }) => {
         <>
 
             {
-                user?.email ?
+                user?.email &&
 
-                    <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
+                <div className="dropdown dropdown-end">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <div className="w-6 md:w-10 rounded-full">
 
-                                <NavLink to="/myprofile"><img src={user.photoURL} /></NavLink>
-                            </div>
-                        </label>
-                    </div>
-
-                    :
-
-                    <NavLink to="/login">Login</NavLink>
-
+                            <img src={user.photoURL} />
+                        </div>
+                    </label>
+                    <ul tabIndex={0} className="menu menu-sm bg-slate-100  dropdown-content z-[1] mt-3 p-2 rounded-box w-52">
+                        <li>
+                            <NavLink to="/myprofile">My Profile</NavLink>
+                        </li>
+                        <li>
+                            <a onClick={handleLogOut}>Logout</a>
+                        </li>
+                    </ul>
+                </div>
             }
 
         </>
     );
 
     return (
-        <div className=" " >
+        <div className=" sticky top-0 z-50 bg-sky-100 opacity-90 text-sky-700" >
             <div className="navbar  p-4  md:flex md:justify-between">
                 <div className="navbar-start md:hidden">
                     <div className="dropdown md:hidden">
@@ -100,16 +106,16 @@ const NavBar = ({ toggleTheme }) => {
 
                 </div>
                 <div className="navbar-center ">
-                    <img className="w-12 h-12 mr-2 mx-auto" src={Logo} alt="" />
+                    <img className="w-10 h-10 md:w-12 md:h-12 mr-2 mx-auto" src={Logo} alt="" />
                     <Link to="/" className="normal-case text-cyan-600 font-serif text-4xl lg:text-6xl">
                         The News <span className="text-red-600">Hunter</span></Link>
                 </div>
                 <div className="navbar-end ">
-                    <div className="flex-none gap-2 md:hidden">
+                    <div className="flex md:hidden">
                         {profileNavLinks}
                     </div>
                 </div>
-                <label className="swap swap-rotate pl-2">
+                <label className="swap swap-rotate ">
 
                     <input type="checkbox" onChange={toggleTheme} />
 
@@ -120,7 +126,7 @@ const NavBar = ({ toggleTheme }) => {
 
                 </label>
             </div>
-            <div className="w-full h-[1px] bg-cyan-300 my-2"></div>
+            <div className="hidden md:flex w-full h-[1px] bg-cyan-300 my-2"></div>
             <div className="justify-between items-center mx-10  hidden md:flex">
                 <div className="flex justify-center ">
                     <ul className="menu menu-horizontal  px-1 gap-6">
@@ -131,7 +137,7 @@ const NavBar = ({ toggleTheme }) => {
                     {profileNavLinks}
                 </div>
             </div>
-            <div className="w-full h-[1px] bg-cyan-300 my-2"></div>
+            {/* <div className="w-full h-[1px] bg-cyan-300 my-2"></div> */}
         </div>
     );
 };

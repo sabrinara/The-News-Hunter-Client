@@ -35,7 +35,7 @@ const MyProfile = () => {
 
   return (
     <div className="container mx-auto mt-10 p-4 dark:text-black ">
-      <h2 className="text-3xl md:text-5xl font-semibold mb-10 text-center text-cyan-700 ">Hi {user?.displayName}! Welcome to your profile</h2>
+      <h2 className="text-3xl md:text-5xl font-semibold mb-10 text-center text-cyan-700 ">Hi {user?.displayName}! Welcome to your profile.</h2>
       <div className="flex flex-col md:flex-row  justify-center items-center text-black gap-10">
         <div className="flex flex-cols justify-center items-center my-10">
           <div className="card w-96 bg-sky-200 shadow-xl ">
