@@ -25,7 +25,7 @@ const MyProfile = () => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Your profile has been updated",
+            title: "Your profile has been updated!",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -34,15 +34,15 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="container mx-auto mt-10 p-4">
-      <h2 className="text-6xl font-semibold mb-10 text-center ">My Profile</h2>
-      <div className="flex justify-center items-center gap-10">
+    <div className="container mx-auto mt-10 p-4 dark:text-black ">
+      <h2 className="text-3xl md:text-5xl font-semibold mb-10 text-center text-cyan-700 ">Hi {user?.displayName}! Welcome to your profile</h2>
+      <div className="flex flex-col md:flex-row  justify-center items-center text-black gap-10">
         <div className="flex flex-cols justify-center items-center my-10">
-          <div className="card w-96 bg-sky-200 text-black shadow-xl ">
+          <div className="card w-96 bg-sky-200 shadow-xl ">
             <div className="card-body">
-              <figure><img className="w-64 h-64 " src={user?.photoURL} alt="image" /></figure>
-              <h2 className="card-title">Name: {user?.displayName}</h2>
-              <p className="text-xl">Email: {user?.email}</p>
+              <figure><img className="w-64 h-64 rounded " src={user?.photoURL} alt="image" /></figure>
+              <h2 className="text-xl ml-7 "><span className="font-bold text-cyan-800">Name: </span>{user?.displayName}</h2>
+              <p className="text-xl ml-7"><span className="font-bold text-cyan-800">Email: </span> {user?.email}</p>
             </div>
 
           </div>
@@ -53,7 +53,7 @@ const MyProfile = () => {
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className=" text-black">Name</span>
                 </label>
                 <input
                   type="text"
@@ -65,7 +65,7 @@ const MyProfile = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Image</span>
+                  <span className="">Image</span>
                 </label>
                 <input
                   type="text"
