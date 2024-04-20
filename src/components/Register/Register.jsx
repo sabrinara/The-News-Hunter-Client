@@ -7,10 +7,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import HelmetKiller from "../../pages/Shared/HelmetKiller/HelmetKIller";
 import axios from "axios";
 import SocialLogin from "../SocialLogin/SocialLogin";
-
+import Lottie from "lottie-react";
+import Ex from "../../../public/register.json";
 const Register = () => {
 
-    const { createUser,  handleUpdateProfile } = useContext(AuthContext);
+    const { createUser, handleUpdateProfile } = useContext(AuthContext);
     const navigate = useNavigate();
 
 
@@ -43,70 +44,78 @@ const Register = () => {
                 name: name,
                 email: email,
                 image: image,
-                role : '',
+                role: '',
             }
             axios.post('https://the-news-hunter-server-lac.vercel.app/users', userInfo)
                 .then(res => {
                     console.log(res);
                     toast.success('Successfully Registered');
-                   
+
                 })
-              
-                navigate('/');
+
+            navigate('/');
         } catch (error) {
             toast.error(error.message);
         }
     }
-    
+
     return (
         <div >
             <HelmetKiller pagename="Register"></HelmetKiller>
-            <div className="hero min-h-screen bg-base-200 mb-8" >
-                <div className="hero-content flex-col ">
-                    <div className="text-center mt-8 mb-4">
-                        <h1 className="text-5xl font-bold text-cyan-600">Register!</h1>
+            <div className=" py-8" >
+                <div className="text-center mt-8 mb-4">
+                    <div className="flex items-center justify-center my-8">
+                        <img className="w-8 h-8 md:w-10 md:h-10 " src={Logo} alt="logo" />
+                        <h1 className="text-5xl text-cyan-600 font-bold">The News <span className="text-5xl font-sans font-bold text-red-500">Hunter</span></h1>
+
                     </div>
-                    <div className="card flex-shrink-0 w-full md:w-[100rem] max-w-xl shadow-2xl">
-                        <a href="#" className="flex items-center justify-center mt-8">
-                            <img className="w-10 h-10 " src={Logo} alt="logo" />
-                            <h1 className="text-4xl text-cyan-600 ">The News <span className="text-4xl font-sans font-bold text-red-500">Hunter</span></h1>
-                        </a>
-                        <form className="card-body" onSubmit={handleRegister}>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Name</span>
-                                </label>
-                                <input type="text" name="name" placeholder="Write Your Name" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Profile Picture</span>
-                                </label>
-                                <input type="text" name="image" placeholder="PhotoUrl" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="email" name="email" placeholder="Write Your Email" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="password" name="password" placeholder="Write Your Password" className="input input-bordered mb-3" required />
+                    <div className="flex flex-col md:flex-row mt-10 justify-center items-center gap-6">
+                        <div className="hidden md:flex md:w-1/3 mt-16 md:mt-1">
+                            <Lottie animationData={Ex} loop={true} />
 
-                            </div>
-                            <div className="form-control mt-1">
-                                <button className="p-3  bg-sky-200 text-sky-800 font-extrabold  rounded-md">Register</button>
-                            </div>
+                        </div>
 
-                        </form>
+                        <div className="w-full md:w-2/3 card flex-shrink-0 max-w-xl shadow-2xl">
 
-                        <div className="flex flex-col items-center justify-center mb-6">
-                            <p className="text-[15px]">Already have an account? Please<Link to="/login"><button className="p-1 text-blue-700 font-bold">Login</button></Link></p>
-                            <div className="divider ">Or, Continue With</div>
-                           <SocialLogin></SocialLogin>
+                            {/* <h1 className="text-4xl font-bold text-cyan-600">Register Now</h1> */}
+
+                            <form className="card-body" onSubmit={handleRegister}>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Name</span>
+                                    </label>
+                                    <input type="text" name="name" placeholder="Write Your Name" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Profile Picture</span>
+                                    </label>
+                                    <input type="text" name="image" placeholder="PhotoUrl" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
+                                    </label>
+                                    <input type="email" name="email" placeholder="Write Your Email" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Password</span>
+                                    </label>
+                                    <input type="password" name="password" placeholder="Write Your Password" className="input input-bordered mb-3" required />
+
+                                </div>
+                                <div className="form-control mt-1">
+                                    <button className="p-3  bg-sky-200 text-sky-800 font-extrabold  rounded-md">Register</button>
+                                </div>
+
+                            </form>
+
+                            <div className="flex flex-col items-center justify-center mb-6">
+                                <p className="text-[15px]">Already have an account? Please<Link to="/login"><button className="p-1 text-sky-700 font-bold">Login</button></Link></p>
+                                <div className="divider">Or, Continue With <SocialLogin></SocialLogin></div>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>

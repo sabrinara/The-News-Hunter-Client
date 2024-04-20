@@ -1,16 +1,17 @@
 import { useContext } from "react";
-import { Link,  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/news.png";
 import { AuthContext } from "../../providers/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
 import HelmetKiller from "../../pages/Shared/HelmetKiller/HelmetKIller";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import Lottie from "lottie-react";
+import Ex from "../../../public/login.json";
 
 const Login = () => {
 
-    const { signIn} = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
 
 
@@ -35,22 +36,25 @@ const Login = () => {
                 toast('Login failed. Please check your email and password.');
             });
     }
-    
+
     return (
         <div>
-            <HelmetKiller pagename = "Login"></HelmetKiller>
-            <div className="hero  min-h-screen bg-base-200 mb-6" >
-                <div className="hero-content flex-col ">
-                    <div className="text-center mt-8 mb-4">
-                        <h1 className=" text-cyan-600 text-5xl  font-bold">Login!</h1>
+            <HelmetKiller pagename="Login"></HelmetKiller>
+            <div className=" py-8" >
+                <div className="text-center mt-8 mb-4">
+                    <div className="flex items-center justify-center my-8">
+                        <img className="w-8 h-8 md:w-10 md:h-10 " src={Logo} alt="logo" />
+                        <h1 className="text-5xl text-cyan-600 font-bold">The News <span className="text-5xl font-sans font-bold text-red-500">Hunter</span></h1>
 
                     </div>
-                    <div className="card flex-shrink-0 w-full md:w-[100rem] max-w-xl shadow-2xl">
-                    <a href="#" className="flex items-center justify-center mt-8">
-                            <img className="w-10 h-10 " src={Logo} alt="logo" />
-                            <h1 className="text-4xl text-cyan-600 ">The News <span className="text-4xl font-sans font-bold text-red-500">Hunter</span></h1>
-                        </a>
+                    <div className="flex flex-col md:flex-row mt-10 justify-center items-center gap-6">
+                        <div className="hidden md:flex md:w-1/3 mt-16 md:mt-1">
+                            <Lottie animationData={Ex} loop={true} />
 
+                        </div>
+
+                        <div className="w-full md:w-2/3 card flex-shrink-0 max-w-xl shadow-2xl">
+                        {/* <h1 className="text-4xl font-bold text-cyan-600">Login Now</h1> */}
                         <form className="card-body" onSubmit={handleLogin}>
                             <div className="form-control">
                                 <label className="label">
@@ -63,7 +67,7 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name="password" placeholder="Password" className="input input-bordered" required />
-                                
+
                             </div>
                             <div className="form-control mt-4">
                                 <button className="p-3 bg-sky-200 text-sky-800 font-extrabold  rounded-md">Login</button>
@@ -72,13 +76,13 @@ const Login = () => {
                         </form>
 
                         <div className="flex flex-col items-center justify-center mb-6">
-                            <p className="text-[15px]">New in the Website? Please<Link to="/register"><button className="p-1 text-blue-700 font-bold">Register</button></Link></p>
-                        
-                            <div className="divider ">Or, Continue With</div>
-                           <SocialLogin></SocialLogin>
-                        </div>
+                                <p className="text-[15px]">Already have an account? Please<Link to="/register"><button className="p-1 text-sky-800 font-bold">Register</button></Link></p>
+                                <div className="divider">Or, Continue With <SocialLogin></SocialLogin></div>
+                                
+                            </div>
                     </div>
                 </div>
+            </div>
             </div>
             <ToastContainer position="bottom-center"
                 autoClose={5000}

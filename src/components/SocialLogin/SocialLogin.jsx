@@ -58,11 +58,11 @@ const SocialLogin = () => {
     };
 
     return (
-        <div>
+        <div className="flex justify-center items-center gap-4">
             <button
                 type="button"
                 onClick={handleGoogleRegister}
-                className="btn bg-sky-200 text-sky-800 font-extrabold rounded-md flex justify-center items-center p-2 px-20 lg:px-52"
+                className=" bg-sky-200 text-sky-800 font-extrabold rounded flex justify-center items-center "
                 disabled={loading}
             >
                 {loading ? 'Processing...' : 'Google'}
