@@ -20,6 +20,7 @@
     "react": "^18.2.0",
     "react-countup": "^6.5.0",
     "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.4",
     "react-google-charts": "^4.0.1",
     "react-helmet-async": "^2.0.1",
     "react-icons": "^4.12.0",
@@ -29,6 +30,7 @@
     "sort-by": "^1.2.0",
     "stripe": "^14.5.0",
     "sweetalert2": "^11.10.1",
+    "swiffy-slider": "^1.6.0",
     "swiper": "^11.0.5",
     "typewriter-effect": "^2.21.0"
   },

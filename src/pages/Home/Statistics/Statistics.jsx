@@ -10,6 +10,8 @@ const Statistics = () => {
     }, [])
     return (
         <section className=" px-4 py-4 lg:py-8 mx-auto  mt-16">
+            <h1 className="text-5xl font-extrabold text-center text-sky-600 mb-10"> Users Statistics</h1>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4" data-aos="fade-up" data-aos-duration="1000">
                 {
                     statistics.map(({ id, name, number, image }) => (

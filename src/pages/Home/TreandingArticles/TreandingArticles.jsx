@@ -62,8 +62,8 @@ const TreandingArticles = () => {
     return (
         <div>
             <hr className="border-sky-400" />
-            <h1 className="text-6xl font-bold text-center my-16">Trending Articles</h1>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-16">
+            <h1 className="text-5xl font-extrabold text-center text-sky-600 my-12 md:my-16">Trending Articles</h1>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-16">
                 {articles.slice(0, 6).map((article, index) => (
                     <div key={index}>
                        <AritcleCard article={article}> </AritcleCard>
@@ -72,7 +72,7 @@ const TreandingArticles = () => {
             </div>
             <div className="flex justify-center mt-16">
                 <Link to="/allarticles">
-                    <button className="btn bg-sky-600 hover:bg-sky-500 text-white rounded">View All News</button>
+                    <button className="px-4 py-2 bg-gradient-to-r from-sky-600 to-sky-400 hover:from-cyan-400 hover:to-cyan-600 text-white rounded">View All News</button>
                 </Link>
             </div>
         </div>

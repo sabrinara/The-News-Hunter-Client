@@ -1,5 +1,8 @@
-const Sponsoprs = () => {
-    const sponsor = [
+
+import Marquee from 'react-fast-marquee';
+
+const Sponsors = () => {
+    const sponsors = [
         {
             id: 1,
             name: 'Sponsor 1',
@@ -60,28 +63,26 @@ const Sponsoprs = () => {
             name: 'Sponsor 12',
             image: 'https://i.ibb.co/yRXk3b1/12.png'
         }
+    ];
 
-    ]
     return (
-        <div className="flex flex-col justify-center items-center">
-            <h1 className="text-7xl font-bold text-center my-28">Our Sponsors</h1>
-               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8  md:mx-40">
-            {
-                sponsor.map((sponsor) => (
-                    <div key={sponsor.id}>
-                      <div className="card w-60 bg-teal-100 shadow-xl rounded">
-                        <figure className="px-6 py-20">
-                            <img className="rounded-xl h-28" src={sponsor.image} />
-                        </figure>
-                       
-                    </div>
-                    </div>
-                ))
-            }
+        <div>
+            <h1 className="text-5xl font-extrabold text-sky-600 text-center my-14">Our Sponsors</h1>
+            <Marquee className="flex flex-col items-center " gradient={false} speed={200}>
+              
+                    {sponsors.map((sponsor) => (
+                        <div key={sponsor.id} className="w-60 mx-2">
+                            <div className="w-60 bg-gradient-to-r from-sky-300 via-sky-200 to-sky-500 text-center shadow-xl rounded">
+                                <figure className="px-12 py-20">
+                                    <img className="rounded-xl h-28" src={sponsor.image} alt={sponsor.name} />
+                                </figure>
+                            </div>
+                        </div>
+                    ))}
+                
+            </Marquee>
         </div>
-        </div>
-     
     );
 };
 
-export default Sponsoprs;
+export default Sponsors;

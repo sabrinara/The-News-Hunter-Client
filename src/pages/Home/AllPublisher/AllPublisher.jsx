@@ -11,12 +11,11 @@ const AllPublisher = () => {
 
     return (
         <div className="my-20 mx-10">
-            <h1 className="text-4xl md:text-7xl font-bold text-center mb-10">Our All Publisher</h1>
-            <div className="grid grid-cols-2 md:grid-cols-3  gap-8" data-aos="fade-right" data-aos-duration="1000">
-                {newPublisher &&
-                    newPublisher.map(({ _id, publisher_image, publisher_name }) => (
+            <h1 className="text-4xl md:text-5xl font-bold text-center text-sky-600 mb-10">Publishers</h1>
+            <div className="grid grid-cols-1 md:grid-cols-3  gap-8" data-aos="fade-right" data-aos-duration="1000">
+                {newPublisher && newPublisher.slice(0, 6).map(({ _id, publisher_image, publisher_name }) => (
                         <div
-                            className="h-full flex items-center bg-white border p-4 rounded-lg hover:border-myprimary overflow-hidden"
+                            className="h-full flex items-center  border p-4 rounded-lg"
                             key={_id}
                         >
                             <img
@@ -25,7 +24,7 @@ const AllPublisher = () => {
                                 src={publisher_image}
                             />
                             <div className="">
-                                <h2 className="text-gray-900 title-font font-medium">Name: {publisher_name}</h2>
+                                <h2 className=" title-font font-medium">Name:<span className="text-red-500">  {publisher_name}</span> </h2>
                             </div>
                         </div>
                     ))}

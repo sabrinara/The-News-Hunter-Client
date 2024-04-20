@@ -138,7 +138,7 @@ const NavBar = ({ toggleTheme }) => {
         </div>
         <div className="hidden md:flex w-full h-[1px] bg-blue-300 "></div>
         <div className=" hidden md:flex  items-center justify-between mx-4 text-sm">
-            <div className="flex items-center justify-center ">
+            <div className="flex items-center justify-center ml-6">
                 <ul className="flex ">
                     {navLinks}
                 </ul>
