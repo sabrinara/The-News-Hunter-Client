@@ -12,7 +12,7 @@ const Banner = () => {
             <img className="hidden md:flex md:w-1/3 md:h-[48rem]" src={"https://i.ibb.co/tXGVWTj/banner3.webp"} alt="" />
            </div>
            
-            <div className="absolute top-2/3 left-1/2 -translate-x-1/2  transform  font-extrabold text-cyan-950 bg-white rounded p-6 font-serif  text-3xl md:text-6xl">
+            <div className="absolute top-1/2 md:top-2/3 left-1/2 -translate-x-1/2  transform  font-extrabold text-sky-800 bg-white rounded p-4 md:p-6 font-serif  text-3xl md:text-5xl">
                 <Typewriter
                     options={{
                         strings: [
