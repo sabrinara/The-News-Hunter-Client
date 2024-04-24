@@ -23,7 +23,7 @@ const NavBar = ({ toggleTheme }) => {
 
 
     })
-    console.log("The is  ", role)
+    // console.log("The is  ", role)
     const navLinks = (
         <>
             <li>
@@ -87,7 +87,7 @@ const NavBar = ({ toggleTheme }) => {
                             <img src={user.photoURL} />
                         </div>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm bg-slate-100  dropdown-content z-[1] mt-3 p-2 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm bg-sky-100  dropdown-content z-[1] mt-3 p-2 rounded-box w-52">
                         <li>
                             <NavLink to="/myprofile" style={navStyle}>My Profile</NavLink>
                         </li>

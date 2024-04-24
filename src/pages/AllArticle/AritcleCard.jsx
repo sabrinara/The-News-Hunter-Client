@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const AritcleCard = ({ article }) => {
-
-    const { _id, title, image, publisher, description, content, tags, status } = article || {}
+    const { role } = useContext(AuthContext)
+    const { _id, title, image, publisher, description, status } = article || {}
+    // console.log(role)
 
     return (
         <div>
@@ -27,17 +30,25 @@ const AritcleCard = ({ article }) => {
                         </h5>
                     </div>
                     <div className="card-actions justify-center md:justify-start">
+
                         <Link to={`/details/${_id}`} className="md:mt-2">
-                            <button
-                                disabled={status === "premium"}
-                                className={`px-4 py-2 rounded  text-white hover:text-white ${status === "premium"
-                                ? "bg-gray-400 "
-                                : "bg-sky-600 hover:bg-sky-500"
-                                }`}
-                            >
-                                View Details
-                            </button>
+                            {role === "admin" ? (
+                                <button
+                                    className="px-4 py-2 rounded text-white hover:text-white bg-sky-600 hover:bg-sky-500"
+                                >
+                                    View Details
+                                </button>
+                            ) : (
+                                <button
+                                    disabled={status === "premium"}
+                                    className={`px-4 py-2 rounded text-white hover:text-white ${status === "premium" ? "bg-gray-400" : "bg-sky-600 hover:bg-sky-500"
+                                        }`}
+                                >
+                                    View Details
+                                </button>
+                            )}
                         </Link>
+
                     </div>
                 </div>
             </div>
