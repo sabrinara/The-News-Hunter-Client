@@ -58,8 +58,9 @@
 
 
 import { useEffect, useState } from "react";
-import HelmetKiller from "../../Shared/HelmetKiller/HelmetKiller";
+
 import { useParams } from "react-router-dom";
+import HelmetKiller from "../../Shared/HelmetKiller/HelmetKIller";
 
 const Details = () => {
     const [article, setArticle] = useState({});

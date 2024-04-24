@@ -1,5 +1,7 @@
 
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Subscription = () => {
   const [subscriptionPeriod, setSubscriptionPeriod] = useState(1);
@@ -20,10 +22,17 @@ const Subscription = () => {
 
   const handleSubscription = () => {
     setSubscribed(true);
+    Swal.fire({
+      icon: 'success',
+      title: 'Subscribed',
+      text: 'Thank you for subscribing!',
+      confirmButtonText: 'OK',
+    })
 
  
 if(subscriptionPeriod === 1){
     setCountdown(subscriptionPeriod * 60); 
+  
 }else {
     setCountdown(subscriptionPeriod * 60 * 60);
 }

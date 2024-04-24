@@ -14,11 +14,10 @@ const PremiumArticles = () => {
                 const response = await fetch(`https://the-news-hunter-server-lac.vercel.app/news`);
                 const data = await response.json();
 
-
-
                 // Filter articles with status 'premium'
                 const filteredArticles = data.filter(article => article.status === 'premium');
                 setArticles(filteredArticles);
+                console.log(filteredArticles);
             } catch (error) {
                 console.error('Error fetching articles:', error);
             }
@@ -47,12 +46,12 @@ const PremiumArticles = () => {
                                     <div className="flex flex-col   justify-center items-center ">
                                         <img
                                             alt="publisher"
-                                            src={article.publisher}
+                                            src={article.publisher?.image}
                                             className="relative inline-block h-[50px] w-[50px] rounded-full border-2 border-cyan-600 object-cover object-center"
                                         />
-                                        {/* <h5 className="mb-4 font-sans text-lg font-semibold ">
-                                            {article.publisher.name}
-                                        </h5> */}
+                                        <h5 className="mb-4 font-sans text-lg font-semibold ">
+                                            {article.publisher?.name}
+                                        </h5>
                                     </div>
                                     <div className="card-actions justify-center ">
                                         <Link to={`/details/${article._id}`} className="">
