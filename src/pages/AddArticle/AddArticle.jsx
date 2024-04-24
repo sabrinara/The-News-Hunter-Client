@@ -20,6 +20,8 @@ const AddArticle = () => {
             .then(data => setPublishers(data))
             .catch(error => console.error('Error fetching publishers:', error));
     }, []);
+    // console.log(publishers);
+    console.log(selectedPublisher);
 
     const handleAddArticle = (event) => {
         event.preventDefault();
@@ -27,7 +29,7 @@ const AddArticle = () => {
         const form = event.target;
         const title = form.title.value;
         const image = form.image.value;
-        const publisher_name = selectedPublisher.name;
+        const publisher_name = selectedPublisher.publisher_name;
         const publisher_image = selectedPublisher.image;
         const description = form.description.value;
         const tags = form.tags.value;
@@ -112,19 +114,16 @@ const AddArticle = () => {
                                     <option value="" disabled selected>Select Publisher</option>
                                     {publishers.map(publisher => (
                                         <option key={publisher._id} value={JSON.stringify(publisher)}>
-                                            {publisher.name}
+                                            {publisher.publisher_name}
                                         </option>
                                     ))}
                                 </select>
                             </div>
-
-                           
-
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Publisher Image</span>
                                 </label>
-                                <input type="text" name="publisher_image" placeholder="Avatar" value={user?.photoURL} className="input input-bordered" required />
+                                <input type="text" name="publisher_image" placeholder="Avatar" value={selectedPublisher?.publisher_image} className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -162,7 +161,7 @@ const AddArticle = () => {
                                 <input type="text" name='description' placeholder="Write Short Description" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-4">
-                                <button className="btn text-white font-semibold rounded bg-blue-500 hover:bg-blue-600 mt-4">Add Article</button>
+                                <button className="py-2 text-white font-semibold rounded bg-sky-500 hover:bg-blue-600 mt-4">Add Article</button>
                             </div>
 
                         </form>
