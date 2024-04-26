@@ -29,6 +29,12 @@ const NavBar = ({ toggleTheme }) => {
             <li>
                 <NavLink to="/" style={navStyle} >Home</NavLink>
             </li>
+            <li>
+                <NavLink to ="/about" style={navStyle}>About</NavLink>
+            </li>
+            <li>
+                <NavLink to="/contact" style={navStyle}>Contact</NavLink>
+            </li>
 
             {user?.email ?
                 <>

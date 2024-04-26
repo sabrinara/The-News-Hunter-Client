@@ -16,6 +16,8 @@ import DashBoard from "../layout/DashBoard";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AllArticlesAdmin from "../pages/Dashboard/AllArticlesAdmin/AllArticlesAdmin";
 import AddPublisher from "../pages/Dashboard/AddPublisher/AddPublisher";
+import Contact from "../pages/Contact/Contact";
+import About from "../pages/About/About";
 
 
 
@@ -30,6 +32,14 @@ const routes = createBrowserRouter([
                 path: "/",
                 element: <Home></Home>,
                 loader: () => fetch('https://the-news-hunter-server-lac.vercel.app/news')
+            },
+            {
+                path: "/contact",
+                element:<Contact></Contact>
+            },
+            {
+                path: "/about",
+                element: <About></About>
             },
             {
                 path: '/login',

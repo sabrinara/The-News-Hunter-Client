@@ -10,14 +10,21 @@ const Footer = () => {
                         <img className="w-10 h-10" src={Logo} alt="" />
                         <h1 className="text-4xl mx-2 font-serif font-semibold text-cyan-600 ">The News <span className=" font-sans font-bold text-red-500">Hunter</span></h1>
                     </div>
-
-                    <div className="flex gap-6 text-cyan-500 m-6 justify-center ">
-                        <a href="https://www.facebook.com/" ><FaFacebook className="md:w-6 md:h-6"></FaFacebook></a>
-                        <a href="https://www.instagram.com/"><FaInstagram className="md:w-6 md:h-6"></FaInstagram></a>
-                        <a href="https://twitter.com/"><FaTwitter className="md:w-6 md:h-6"></FaTwitter></a>
+                    <div className="flex flex-col justify-between">
+                        <div className="flex gap-6 text-cyan-500 mx-6 justify-center ">
+                            <a href="/about" className="underline underline-offset-4 ">About</a>
+                            <a href="/contact" className="underline underline-offset-4">Contact</a>
+                        </div>
+                        <div className="flex gap-6 text-cyan-500 mx-6 my-3 justify-center ">
+                            <a href="https://www.facebook.com/" ><FaFacebook className="md:w-6 md:h-6"></FaFacebook></a>
+                            <a href="https://www.instagram.com/"><FaInstagram className="md:w-6 md:h-6"></FaInstagram></a>
+                            <a href="https://twitter.com/"><FaTwitter className="md:w-6 md:h-6"></FaTwitter></a>
+                        </div>
                     </div>
+
+
                 </div>
-{/* 
+                {/* 
                 <nav>
                     <header className="footer-title">Services</header>
                     <a className="link link-hover">Branding</a>
@@ -41,7 +48,7 @@ const Footer = () => {
             </div>
             {/* <hr className="my-8 border-sky-400 lg:mx-24 " /> */}
 
-            <p className="block text-sky-600 text-center font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
+            <p className="block text-cyan-600 text-center font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
                 © 2024,The News Hunter <small> -News Website</small><br /> <small> @Sabrina Rashid</small>
             </p>
         </footer >

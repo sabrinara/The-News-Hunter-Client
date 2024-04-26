@@ -5,7 +5,7 @@ const Plans = () => {
     return (
        <div className="my-20">
         <h1 className="text-5xl mb-16 font-extrabold text-center text-sky-600 px-6">Subscription Plans</h1>
-         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-10 mx-10 md:mx-44">
+         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-10 mx-10 md:mx-20">
             <div className="card shadow-2xl shadow-black  bg-gray-800 hover:bg-sky-100 text-white hover:text-sky-800">
                 <div className="card-body border-2 rounded-xl  border-white">
                     <div className="mt-4">
