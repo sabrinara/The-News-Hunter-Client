@@ -13,6 +13,7 @@ const NavBar = ({ toggleTheme }) => {
                 console.error(error);
             });
     }
+    console.log('user' ,user)
     const navStyle = ({ isActive }) => ({
         backgroundColor: isActive && "rgb(2 132 199)",
         color: isActive ? "white" : "rgb(2 132 199)",
@@ -91,7 +92,7 @@ const NavBar = ({ toggleTheme }) => {
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-6 md:w-10 rounded-full">
 
-                            <img src={user.photoURL} />
+                            <img src={user?.photoURL} />
                         </div>
                     </label>
                     <ul tabIndex={0} className="menu menu-sm bg-sky-100  dropdown-content z-[1] mt-3 p-2 rounded-box w-52">
