@@ -1,6 +1,9 @@
 # The News Hunter
 ## A Full Stack Newspaper Web Application.
 ### Website Live: https://the-news-hunter.netlify.app
+#### Admin Credential : 
+- Email: admin@news.com
+- Password: 111111$S
 
 ### Features-
 - User registration and login using email and Google
@@ -21,6 +24,7 @@ To run The News Hunter locally, follow these steps:
 - Clone the repository to your local machine.
 - Install dependencies
 - setup env file
+
      npm install
 - Start the server
      npm run dev
