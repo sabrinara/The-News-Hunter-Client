@@ -10,51 +10,42 @@ const SocialLogin = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
-    const handleGoogleRegister = () => {
+    const handleGoogleRegister = async () => {
         setLoading(true);
-        googleSignIn()
-            .then((result) => {
-                const userInfo = {
-                    email: result.user?.email,
-                    name: result.user?.displayName,
-                    image: result.user?.photoURL
-                };
+        try {
+            const result = await googleSignIn();
+            const userInfo = {
+                email: result.user?.email,
+                name: result.user?.displayName,
+                image: result.user?.photoURL,
+                role : 'user' 
+            };
+            console.log(userInfo);
 
-                // Check if the user already exists
-                axios.get(`https://the-news-hunter-server-lac.vercel.app/users?email=${userInfo.email}`)
-                    .then((response) => {
-                        if (response.data.length === 0) {
-                            // User does not exist, proceed with registration
-                            axios.post('https://the-news-hunter-server-lac.vercel.app/users', userInfo)
-                                .then(() => {
-                                    toast.success('Successfully Registered');
-                                    navigate('/');
-                                })
-                                .catch((error) => {
-                                    console.error(error);
-                                    toast.error('Registration failed. Please try again later.');
-                                });
-                        } else {
-                            // User already exists, handle accordingly
-                            toast.warning('User already exists. Redirecting to home page.');
-                            navigate('/');
-                        }
-                    })
-                    .catch((error) => {
-                        console.error(error);
-                        toast.error('An error occurred. Please try again later.');
-                    })
-                    .finally(() => {
-                        setLoading(false);
-                    });
-            })
-            .catch((error) => {
-                console.error(error);
-                toast.error('Login failed. Please check your email and password.');
-            })
-            .finally(() => {
-                setLoading(false);
-            });
+    
+        const response = await axios.get(`https://the-news-hunter-server-lac.vercel.app/users?email=${userInfo.email}`);
+        console.log(response)
+
+        let isUserExist  = false;
+        response?.data.forEach(user => {
+            if(user.email === userInfo.email) {
+                isUserExist = true;
+            }
+
+        });
+            if (!isUserExist)  {
+                await axios.post('https://the-news-hunter-server-lac.vercel.app/users', userInfo);
+                toast.success('Successfully Registered');
+            } else {
+                toast.error('User already exists. Please login.');
+            }
+            navigate('/');
+        } catch (error) {
+            console.error(error);
+            toast.error('Login failed. Please check your email and password.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -62,7 +53,7 @@ const SocialLogin = () => {
             <button
                 type="button"
                 onClick={handleGoogleRegister}
-                className=" bg-sky-200 text-sky-800 font-extrabold rounded flex justify-center items-center "
+                className="bg-sky-200 text-sky-800 font-extrabold rounded flex justify-center items-center"
                 disabled={loading}
             >
                 {loading ? 'Processing...' : 'Google'}

@@ -75,9 +75,15 @@ const MyProfile = () => {
                 />
               </div>
 
+
               <button type="submit" className="btn btn-primary mt-4">
                 Update Profile
               </button>
+              {user?.role !== "admin" || user?.role !== "editor" &&
+              <button className="" >
+                Request to become an publisher 
+              </button> 
+              }
             </form>
           </div>
         </div>
