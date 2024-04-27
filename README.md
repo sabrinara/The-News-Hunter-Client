@@ -1,5 +1,6 @@
 # The News Hunter
-## Live-Link: https://the-news-hunter.netlify.app
+### A Full Stack Newspaper Web Application.
+## Website Live: https://the-news-hunter.netlify.app
 
 ### Features-
 - A Full Stack Newspaper Web Application.
