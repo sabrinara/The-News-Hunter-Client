@@ -11,37 +11,38 @@ const AritcleCard = ({ article }) => {
     return (
         <div>
 
-            <div className="card  md:h-[56vh] md:card-side bg-base-100 shadow-xl  ">
-                <figure className="w-full h-[50vh] md:h-[56vh] md:w-[50%]">
-                    <img className="w-full h-[50vh] md:h-[56vh] md:max-w-none" src={image} /></figure>
-                <div className="card-body md:w-[50%]">
-                    <h1 className="card-title text-3xl text-red-600">{title}.</h1>
-                    <p className="text-sm overflow-hidden">{description}</p>
+            <div className="flex flex-col md:flex-row md:h-[50vh] rounded bg-base-100 shadow-2xl justify-between items-center">
+                <figure className="w-full h-[30vh] md:h-[50vh] md:w-1/2 ">
+                    <img className="w-full h-[30vh] md:h-[50vh] md:max-w-none rounded" src={image} />
+                </figure>
+                <div className="pt-3 md:pt-5 px-5 md:w-1/2">
+                    <h1 className="text-2xl md:text-3xl font-bold text-sky-600">{title.substring(0, 20)}</h1>
+                    <p className="text-sm overflow-hidden">{description.substring(0, 120)}...</p>
 
 
                     <div className="flex flex-col  md:flex-row items-center justify-center md:justify-start md:gap-2">
                         <img
                             alt=""
                             src={publisher.image}
-                            className="relative inline-block h-[70px] w-[70px] md:h-[50px] md:w-[50px] rounded-full border-2 border-cyan-600 object-cover object-center"
+                            className="relative inline-block w-12 h-12 md:h-[50px] md:w-[50px] rounded-full border-2 border-cyan-600 object-cover object-center mt-2 md:my-2"
                         />
-                        <h5 className="mb-4 font-sans text-md font-semibold ">
+                        <h5 className="mb-2 font-sans text-md font-semibold ">
                             {publisher.name}
                         </h5>
                     </div>
-                    <div className="card-actions justify-center md:justify-start">
+                    <div className="flex justify-center md:justify-start text-sm  md:text-lg mb-4 md:mb-2">
 
                         <Link to={`/details/${_id}`} className="md:mt-2">
                             {role === "admin" ? (
                                 <button
-                                    className="px-4 py-2 rounded text-white hover:text-white bg-sky-600 hover:bg-sky-500"
+                                    className="px-2 py-1 md:px-4 md:py-2 rounded text-white hover:text-white bg-sky-600 hover:bg-sky-500"
                                 >
                                     View Details
                                 </button>
                             ) : (
                                 <button
                                     disabled={status === "premium"}
-                                    className={`px-4 py-2 rounded text-white hover:text-white ${status === "premium" ? "bg-gray-400" : "bg-sky-600 hover:bg-sky-500"
+                                    className={`px-2 py-1 md:px-4 md:py-2 rounded text-white hover:text-white ${status === "premium" ? "bg-gray-400" : "bg-sky-600 hover:bg-sky-500"
                                         }`}
                                 >
                                     View Details

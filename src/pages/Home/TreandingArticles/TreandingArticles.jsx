@@ -63,7 +63,7 @@ const TreandingArticles = () => {
         <div>
             <hr className="border-sky-400" />
             <h1 className="text-5xl font-extrabold text-center text-sky-600 my-12 md:my-16">Trending Articles</h1>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-8 md:px-16">
                 {articles.slice(0, 6).map((article, index) => (
                     <div key={index}>
                        <AritcleCard article={article}> </AritcleCard>

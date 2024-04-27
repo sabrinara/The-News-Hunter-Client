@@ -89,7 +89,7 @@ const NavBar = ({ toggleTheme }) => {
                 user?.email &&
 
                 <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                    <label tabIndex={0} className=" avatar mx-2">
                         <div className="w-6 md:w-10 rounded-full">
 
                             <img src={user?.photoURL} />
@@ -123,8 +123,8 @@ const NavBar = ({ toggleTheme }) => {
                     </div>
                 </div>
                 <div className="navbar-center ">
-                    <img className="w-10 h-10 md:w-12 md:h-12 mr-2 mx-auto" src={Logo} alt="" />
-                    <Link to="/" className="normal-case text-cyan-600 font-serif text-4xl md:text-5xl">
+                    <img className="w-8 h-8 md:w-12 md:h-12 mr-2 mx-auto" src={Logo} alt="" />
+                    <Link to="/" className="normal-case text-cyan-600 font-serif text-2xl md:text-5xl">
                         The News <span className="text-red-600">Hunter</span></Link>
                 </div>
                 <div className="navbar-end ">

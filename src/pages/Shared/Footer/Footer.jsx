@@ -16,12 +16,12 @@ const Footer = () => {
             <hr className="my-8 border-sky-400 md:mx-12" />
             <div className=" ">
                 <div className="flex flex-col md:flex-row  justify-between md:mx-12 items-center   ">
-                    <div className="flex items-center">
-                        <img className="w-10 h-10" src={Logo} alt="" />
-                        <h1 className="text-4xl mx-2 font-serif font-semibold text-cyan-600 ">The News <span className=" font-sans font-bold text-red-500">Hunter</span></h1>
+                    <div className="flex items-center my-4 md:my-0">
+                        <img className="w-8 h-8 md:w-10 md:h-10" src={Logo} alt="" />
+                        <h1 className="text-2xl md:text-4xl mx-2 font-serif font-semibold text-cyan-600 ">The News <span className=" font-sans font-bold text-red-500">Hunter</span></h1>
                     </div>
-                    <div className="flex flex-col justify-between">
-                        <div className="flex gap-6 text-cyan-500 mx-6 justify-center ">
+                    <div className="flex flex-col-reverse md:flex-col  justify-between">
+                        <div className="flex gap-6 text-cyan-600 my-4 md:my-0 mx-6 justify-center ">
                             <a href="/about" className="underline underline-offset-4 ">About</a>
                             <a href="/contact" className="underline underline-offset-4">Contact</a>
                             {user?.email ?
