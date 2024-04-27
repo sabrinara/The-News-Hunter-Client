@@ -24,9 +24,14 @@ To run The News Hunter locally, follow these steps:
 - Clone the repository to your local machine.
 - Install dependencies
 - setup env file
-
-     npm install
+```bash
+   npm install
+```
+    
 - Start the server
-     npm run dev
+```bash
+   npm run dev
+```
+    
 
-### Environment Setup
+
