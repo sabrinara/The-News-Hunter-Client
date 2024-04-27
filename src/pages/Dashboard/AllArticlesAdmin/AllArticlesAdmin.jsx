@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "daisyui/dist/full.css";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const AllArticlesAdmin = () => {
   const [products, setProducts] = useState([]);
@@ -114,16 +115,19 @@ const AllArticlesAdmin = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-4">Manage Articles</h2>
+      <h2 className="text-5xl font-semibold my-10 text-center text-cyan-600">All Article</h2>
       <div className="overflow-x-auto">
-        <table className="min-w-full table-auto border-collapse border border-gray-300">
+        <table className="min-w-full border text-cyan-600">
           <thead>
             <tr>
               <th className="px-4 py-2 border border-gray-300">Image</th>
               <th className="px-4 py-2 border border-gray-300">Title</th>
+              <th className="px-4 py-2 border border-gray-300">Details</th>
+              <th className="px-4 py-2 border border-gray-300">Publisher</th>
+
               <th className="px-4 py-2 border border-gray-300">Description</th>
              
-              <th className="px-4 py-2 border border-gray-300">Tags</th>
+              {/* <th className="px-4 py-2 border border-gray-300">Tags</th> */}
               <th className="px-4 py-2 border border-gray-300">Status</th>
               <th className="px-4 py-2 border border-gray-300">Action</th>
             </tr>
@@ -132,18 +136,34 @@ const AllArticlesAdmin = () => {
             {products.map((article) => (
               <tr key={article._id}>
                 <td className="px-4 py-2 border border-gray-300">
+                <Link to={`/details/${article._id}`} className="md:mt-2">
                   <img src={article.image} className="w-12 h-12 rounded-full" />
+                  </Link>
                 </td>
                 <td className="px-4 py-2 border border-gray-300">
+                <Link to={`/details/${article._id}`} className="md:mt-2">
                   {article.title}
+                  </Link>
+                </td>
+                <td className="px-4 py-2 border border-gray-300">
+                <button
+                  
+                  className="px-3 py-2 rounded-md text-white font-medium shadow-md bg-cyan-600 hover:bg-cyan-700"
+                >
+                     <Link to={`/details/${article._id}`} className="md:mt-2"> View</Link>
+                 
+                </button>
+                </td>
+                <td className="px-4 py-2 border border-gray-300">
+                  {article.publisher.name}
                 </td>
                 <td className="px-4 py-2 border border-gray-300">
                   {article.description}
                 </td>
                
-                <td className="px-4 py-2 border border-gray-300">
+                {/* <td className="px-4 py-2 border border-gray-300">
                   {article.tags}
-                </td>
+                </td> */}
                 <td className="px-4 py-2 border border-gray-300">
                   {article.status}
                 </td>
@@ -153,29 +173,36 @@ const AllArticlesAdmin = () => {
                       onClick={() =>
                         handleApproval(
                           article._id,
-                          article.status === "approved" ? "pending" : "approved"
+                          article.status === "approved" ? "pending" : article.status === "declined" ? "approved" : "approved"
                         )
                       }
-                      className={`btn btn-sm ${
+                      className={`px-3 py-1 rounded-md text-white font-medium shadow-md transition-colors ${
                         article.status === "approved"
-                          ? "btn-error"
-                          : "btn-success"
+                        ? "bg-gray-600" : "bg-green-600 hover:bg-green-700"
                       }`}
                     >
-                      Approve
+                      Approved
                     </button>
                     <button
                       onClick={() => handleDecline(article._id)}
-                      className="btn btn-sm btn-error"
+                      className={`px-3 py-1 rounded-md text-white font-medium shadow-md transition-colors  ${
+                        article.status === "declined"
+                        ? "bg-red-500" : "bg-red-700 hover:bg-red-600"
+                      }`}
                     >
-                      Decline
+                      Declined
                     </button>
                     <button
                       onClick={() => handleMakePremium(article._id)}
-                      className="btn btn-sm btn-warning"
+                      className={`px-3 py-1 rounded-md text-white font-medium shadow-md transition-colors  ${
+                        article.status === "premium"
+                        ? "bg-sky-500" : "bg-sky-800 hover:bg-sky-600"
+                      }`}
                     >
                       Make Premium
                     </button>
+                  {/* view details button */}
+               
                   </div>
                 </td>
               </tr>
