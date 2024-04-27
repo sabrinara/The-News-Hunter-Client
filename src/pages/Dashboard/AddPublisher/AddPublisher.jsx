@@ -11,6 +11,7 @@ const navigate = useNavigate();
         const publisher_name = form.publisher_name.value;
         const publisher_image = form.publisher_image.value;
         
+        
         const newPublisher = {
            
             publisher_name,

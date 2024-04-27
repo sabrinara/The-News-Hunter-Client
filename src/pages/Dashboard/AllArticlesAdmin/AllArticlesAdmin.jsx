@@ -89,7 +89,7 @@ const AllArticlesAdmin = () => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      status: "premium",
+      status: "premium" || "approved",
     }),
    })
    .then(res => res.json())
@@ -98,7 +98,7 @@ const AllArticlesAdmin = () => {
       if (data.modifiedCount > 0) {
         const updatedArticles = products.map((article) =>
           article._id === articleId
-            ? { ...article, status: "premium" }
+            ? { ...article, status: "premium" || "approved" }
             : article
         );
         setProducts(updatedArticles);

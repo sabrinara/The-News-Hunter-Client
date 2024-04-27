@@ -42,12 +42,16 @@ const AllArticles = () => {
     const filteredArticles = articles.filter(article =>
         article.title && article.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
+    // fillter premium and approved status articles
+    const filteredPremiumApprovedArticles = filteredArticles.filter(article =>
+        article.status === "approved" || article.status === "premium"
+    );
 
     return (
         <div>
             <HelmetKiller pagename="All Articles"></HelmetKiller>
             <div>
-                <h1 className="text-6xl font-bold text-center my-16">All Articles</h1>
+                <h1 className="text-5xl text-sky-600 font-bold text-center my-16">All Articles</h1>
                 <div className="flex justify-center items-center m-20 text-2xl">
                     <input
                         type="text"
@@ -59,7 +63,7 @@ const AllArticles = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 px-20 gap-4">
-                    {filteredArticles.map((article, index) => (
+                    {filteredPremiumApprovedArticles.map((article, index) => (
                         <div key={index}>
                             <AritcleCard article={article} premium={article.isPremium} isSubscribed={isSubscribed}></AritcleCard>
                         </div>

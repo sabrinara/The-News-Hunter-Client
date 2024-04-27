@@ -122,7 +122,7 @@ const MyArticles = () => {
                     </thead>
                     <tbody className="text-center">
                         {articles?.map((article, index) => (
-                            <tr key={index} className="border border-sky-400">
+                            <tr key={index} className="border border-sky-400 text-sky-600">
                                 <td className="py-2 px-4 border-b border-sky-400">{index + 1}</td>
                                 <td className="py-2 px-8 border-b border-sky-400 mx-10">{article.title}</td>
                                 <td>
