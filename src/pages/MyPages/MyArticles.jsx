@@ -18,19 +18,20 @@ const MyArticles = () => {
     useEffect(() => {
         axios.get('https://the-news-hunter-server-lac.vercel.app/news')
             .then(response => {
-                console.log(response.data);
-                console.log(user?.email);
-
+                console.log('Response data:', response.data);
+                console.log('User email:', user?.email);
+    
                 // Filter articles based on the user's email
-                const filteredData = response.data.filter(article => article.email?.email === user?.email);
-
+                const filteredData = response.data.filter(article => article?.email === user?.email);
+    
                 setArticles(filteredData);
-                console.log(filteredData);
+                console.log('Filtered articles:', filteredData);
             })
             .catch(error => {
                 console.error('Error fetching news data:', error);
             });
     }, [user?.email]); // Make sure to include user?.email in the dependency array
+    
 
     const handleDetailsClick = (article) => {
         navigate(`/details/${article._id}`);
@@ -120,19 +121,19 @@ const MyArticles = () => {
                         </tr>
                     </thead>
                     <tbody className="text-center">
-                        {articles.map((article, index) => (
-                            <tr key={index} className="border-b border-sky-400">
+                        {articles?.map((article, index) => (
+                            <tr key={index} className="border border-sky-400">
                                 <td className="py-2 px-4 border-b border-sky-400">{index + 1}</td>
                                 <td className="py-2 px-8 border-b border-sky-400 mx-10">{article.title}</td>
                                 <td>
-                                    <button className="btn mx-10 bg-emerald-600 hover:bg-emerald-500 text-white rounded" onClick={() => handleDetailsClick(article)}> Details</button>
+                                    <button className="px-3 py-2 mx-10 bg-sky-600 hover:bg-sky-500 text-white rounded" onClick={() => handleDetailsClick(article)}> Details</button>
                                 </td>
                                 <td className="py-2 px-8 border-b border-sky-400 mx-10 ">{article.status}</td>
                                 <td>{article.status === "premium" ? 'Yes' : 'No'}</td>
                                 <td>
                                     <div>
                                         <button
-                                            className="btn rounded mx-10 bg-blue-600 text-white hover:bg-blue-500"
+                                            className="px-3 py-2 rounded mx-10 bg-orange-600 text-white hover:bg-orange-500"
                                             onClick={() => handleUpdateClick(article._id)}
                                         >
                                             Update
@@ -166,7 +167,7 @@ const MyArticles = () => {
                                                             </div>
                                                         </div>
 
-                                                        <button className="btn rounded mt-4 w-full text-white bg-blue-400 hover:bg-blue-600">Update</button>
+                                                        <button className="px-3 py-2 rounded mt-4 w-full text-white bg-blue-400 hover:bg-blue-600">Update</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -174,10 +175,10 @@ const MyArticles = () => {
                                     </div>
                                 </td>
                                 <td>
-                                    <button className="btn bg-red-500 hover:bg-red-700 text-white rounded mx-8" onClick={() => handleDeleteClick(article)}>Delete</button>
+                                    <button className="px-3 py-2 bg-red-500 hover:bg-red-700 text-white rounded mx-8" onClick={() => handleDeleteClick(article)}>Delete</button>
                                     {article.status === "declined" && (
                                         <button
-                                            className="btn mx-2 bg-red-600 text-white rounded"
+                                            className="px-3 py-2 mx-2 bg-red-600 text-white rounded"
                                             onClick={() => handleDeclineClick(article.declineReason)}
                                         >
                                             Declined
