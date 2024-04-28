@@ -28,13 +28,14 @@ const AddPublisher = () => {
             },
             body: JSON.stringify({
                status: 'approved',
+               role : 'editor'
             }),
         })
             .then(response => response.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
                     const updatedRequests = publisherRequests.map((request) => request._id === id
-                        ? { ...request, status: 'approved' }
+                        ? { ...request, status: 'approved', role : 'editor' }
                         : request
                 );
                     setPublisherRequests(updatedRequests);
