@@ -31,7 +31,8 @@ const MyProfile = () => {
         email: user.email,
         publisher_name: user?.displayName,
         publisher_image: user?.photoURL,
-        status: 'pending'
+        status: 'pending',
+        role : 'user',
 
       }),
     })
