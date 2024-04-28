@@ -37,7 +37,7 @@ const SocialLogin = () => {
                 await axios.post('https://the-news-hunter-server-lac.vercel.app/users', userInfo);
                 toast.success('Successfully Registered');
             } else {
-                toast.error('User already exists. Please login.');
+                toast.warning('User already exists. Please login.');
             }
             navigate('/');
         } catch (error) {

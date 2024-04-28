@@ -9,6 +9,7 @@ import axios from "axios";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import Lottie from "lottie-react";
 import Ex from "../../../public/register.json";
+import { TbHomeShare } from "react-icons/tb";
 const Register = () => {
 
     const { createUser, handleUpdateProfile } = useContext(AuthContext);
@@ -50,7 +51,6 @@ const Register = () => {
                 .then(res => {
                     console.log(res);
                     toast.success('Successfully Registered');
-
                 })
 
             navigate('/');
@@ -66,11 +66,16 @@ const Register = () => {
                 <div className="text-center mt-8 mb-4">
                     <div className="flex items-center justify-center my-8">
                         <img className="w-8 h-8 md:w-10 md:h-10 " src={Logo} alt="logo" />
-                        <h1 className="text-5xl text-cyan-600 font-bold">The News <span className="text-5xl font-sans font-bold text-red-500">Hunter</span></h1>
+                        <h1 className="text-3xl md:text-5xl text-cyan-600 font-bold">The News <span className="text-3xl md:text-5xl font-sans font-bold text-red-500">Hunter</span></h1>
 
                     </div>
-                    <div className="flex flex-col md:flex-row mt-10 justify-center items-center gap-6">
-                        <div className="hidden md:flex md:w-1/3 mt-16 md:mt-1">
+                    <div className="flex  justify-start ml-8 md:ml-0 md:justify-end md:mr-36">
+                        <Link to="/" className="text-sky-500 font-bold text-3xl md:text-5xl hover:text-sky-600 " >
+                            <TbHomeShare />
+                        </Link>
+                    </div>
+                    <div className="flex flex-col md:flex-row  justify-center items-center gap-6">
+                        <div className="hidden md:flex md:w-1/3 mt-16 ">
                             <Lottie animationData={Ex} loop={true} />
 
                         </div>
@@ -114,7 +119,7 @@ const Register = () => {
                             <div className="flex flex-col items-center justify-center mb-6">
                                 <p className="text-[15px]">Already have an account? Please<Link to="/login"><button className="p-1 text-sky-700 font-bold">Login</button></Link></p>
                                 <div className="divider">Or, Continue With <SocialLogin></SocialLogin></div>
-                                
+
                             </div>
                         </div>
                     </div>
