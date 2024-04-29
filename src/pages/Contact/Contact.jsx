@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import Ex from "../../public/contact.json";
+import Ex from "../../../public/contact.json";
+import Con from "../../../public/contact-2.json";
 import Lottie from "lottie-react";
 import { ToastContainer, toast } from "react-toastify";
 const Contact = () => {
@@ -41,12 +42,21 @@ const Contact = () => {
             <Helmet>
                 <title>The Hunter News- Contact</title>
             </Helmet>
-            <div className="flex  items-center justify-center">
-                <h1 className="text-3xl md:text-5xl font-bold text-cyan-600 mt-16 ">Contact Us</h1>
+            <div className="flex flex-col md:flex-row-reverse  items-center justify-between mt-0">
+                <div className="w-full md:w-1/3 mx-10 text-center md:text-start">
+                    <h1 className="text-3xl md:text-5xl font-bold text-cyan-600 mt-10 ">Contact Us</h1>
+                    <p className="text-sm  my-2 text-cyan-600">Get in touch with us. We will respond as soon as possible.</p>
+                    <p className="text-sm  my-2 text-cyan-600">Reach Out for any type of Inquiries, or Just to Say Hi!</p>
+                    <p className="text-sm  my-2 text-cyan-600">Send us a message!</p>
+                </div>
+                <div className="w-full md:w-2/3 ">
+                    <Lottie animationData={Con} loop={true} />
+                </div>
+
             </div>
 
             <div className="flex flex-col md:flex-row items-center justify-center">
-                <div className="hidden md:flex md:w-1/2 mt-16 md:mt-1">
+                <div className="hidden md:flex md:w-1/3  md:mt-1 mx-20">
                     <Lottie animationData={Ex} loop={true} />
                 </div>
                 <div className="w-full md:w-1/2 mx-auto">
@@ -68,11 +78,11 @@ const Contact = () => {
 
                         <div className="form-control">
                             <label className="label">Message:</label>
-                            <textarea id="message" value={message} className="input input-bordered"  onChange={handleMessageChange} required />
+                            <textarea id="message" value={message} className="input input-bordered" onChange={handleMessageChange} required />
                         </div>
 
 
-                        <button className="btn mt-10 rounded text-white hover:bg-sky-600 bg-sky-400" type="submit">Submit</button>
+                        <button className="px-10 py-3 mt-10 rounded border-2 border-sky-400 " type="submit">Submit</button>
                     </form>
                 </div>
             </div>
