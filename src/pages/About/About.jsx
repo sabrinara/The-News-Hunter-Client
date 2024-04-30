@@ -18,10 +18,6 @@ const About = () => {
                 <div className="w-full md:w-1/3 mx-10 md:ml-20 mt-16 md:mt-0 ">
                     <h1 className="text-3xl md:text-xl font-semibold text-cyan-600 mb-6 text-center md:text-left md:mx-5">About Us</h1>
                     <h1 className="text-lg md:text-4xl font-bold text-cyan-600 mb-6 text-center md:text-left mx-10 md:mx-5">OUR DREAM IS TO PROVIDE YOU AUTHENTICATE NEWS ALL OVER THE WORLD.</h1>
-                    {/* <h1 className="text-3xl md:text-5xl font-bold text-cyan-600 mb-6 text-center md:text-left">About Us</h1>
-                <p className="text-sm  my-2 text-cyan-600">NewsQuest provide you authentic news and breaking news with high quality.</p>
-                <p className="text-sm  my-2 text-cyan-600">Our Publishers are experts in their field.</p>
-                <p className="text-sm  my-2 text-cyan-600">For more details please contact with us!</p> */}
                     <div className="text-center md:text-left">
                         <button className="text-sm  my-2 text-white bg-sky-500 px-4 py-2 rounded-full hover:bg-sky-700 md:mx-5"><Link to="/contact">Contact us</Link></button>
                     </div>
@@ -44,7 +40,7 @@ const About = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4" data-aos="fade-up" data-aos-duration="1000">
                             {
-                                statistics.map(({ id, name, number, image }) => (
+                                statistics.map(({ id, name, number }) => (
                                     <div className="flex justify-center flex-col items-center gap-3 sm:p-8 border-2 border-sky-600 rounded-2xl" key={id}>
                                         <div className="flex items-center ">
                                             {/* <img src={image} alt={name} className="h-44  w-44"></img> */}

@@ -1,5 +1,6 @@
 // import { useEffect, useState } from "react";
 import HelmetKiller from "../Shared/HelmetKiller/HelmetKIller";
+import AboutHome from "./AboutHome/AboutHome";
 import AllPublisher from "./AllPublisher/AllPublisher";
 import Banner from "./Banner/Banner";
 import Plans from "./Plans/Plans";
@@ -20,6 +21,7 @@ const Home = () => {
             <Statistics></Statistics>
             <Plans></Plans>
             <Sponsoprs></Sponsoprs>
+            <AboutHome></AboutHome>
         </div>
     );
 };

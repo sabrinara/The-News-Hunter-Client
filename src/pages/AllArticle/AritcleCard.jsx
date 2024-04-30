@@ -5,20 +5,32 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const AritcleCard = ({ article }) => {
     const { role } = useContext(AuthContext)
-    const { _id, title, image, publisher, description, status } = article || {}
+    const { _id, title, image, publisher, description, status ,tags } = article || {}
     // console.log(role)
 
     return (
         <div>
 
-            <div className="flex flex-col md:flex-row md:h-[50vh] rounded bg-base-100 shadow-2xl justify-between items-center">
-                <figure className="w-full h-[30vh] md:h-[50vh] md:w-1/2 ">
-                    <img className="w-full h-[30vh] md:h-[50vh] md:max-w-none rounded" src={image} />
+            <div className="flex flex-col md:flex-row md:h-[58vh] rounded bg-base-100 shadow-2xl justify-between items-center">
+                <figure className="w-full h-[36vh] md:h-[58vh] md:w-1/2 ">
+                    <img className="w-full h-[36vh] md:h-[58vh] md:max-w-none rounded" src={image} />
                 </figure>
                 <div className="pt-3 md:pt-5 px-5 md:w-1/2">
                     <h1 className="text-2xl md:text-3xl font-bold text-sky-600">{title.substring(0, 20)}</h1>
                     <p className="text-sm overflow-hidden">{description.substring(0, 120)}...</p>
 
+                    <div className="flex flex-wrap gap-2 text-sm mt-2">
+
+                        {tags?.map((tag, index) => (
+                            <span
+                                key={index}
+                                className="bg-cyan-700 text-white px-1 py-0.5 rounded"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+
+                    </div>
 
                     <div className="flex flex-col  md:flex-row items-center justify-center md:justify-start md:gap-2">
                         <img

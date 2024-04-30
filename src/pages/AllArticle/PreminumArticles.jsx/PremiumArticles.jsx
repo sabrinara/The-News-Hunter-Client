@@ -31,7 +31,7 @@ const PremiumArticles = () => {
         <div>
             <HelmetKiller pagename="Premium Articles"></HelmetKiller>
             <div>
-                <h1 className="text-6xl font-bold text-center my-16">Premium Articles</h1>
+                <h1 className="text-3xl md:text-5xl font-bold text-center my-16 text-sky-600">Premium Articles</h1>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 px-20 gap-4">
                     {articles.map((article, index) => (

@@ -105,7 +105,7 @@ const MyArticles = () => {
     return (
         <div>
             <HelmetKiller pagename="My Articles"></HelmetKiller>
-            <h1 className="text-7xl font-bold my-16 text-center">My Articles</h1>
+            <h1 className="text-3xl md:text-5xl font-bold my-16 text-center text-sky-600 ">My Articles</h1>
             {articles?.length === 0 && <h1 className="text-3xl font-bold my-16 text-center">No Articles Found</h1>}
             <div className="flex justify-center items-center">
                 <table>

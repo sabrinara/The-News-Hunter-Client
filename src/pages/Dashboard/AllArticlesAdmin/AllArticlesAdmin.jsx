@@ -155,7 +155,7 @@ const AllArticlesAdmin = () => {
                 </button>
                 </td>
                 <td className="px-4 py-2 border border-gray-300">
-                  {article.publisher.name}
+                  {article.publisher_name}
                 </td>
                 <td className="px-4 py-2 border border-gray-300">
                   {article.description}

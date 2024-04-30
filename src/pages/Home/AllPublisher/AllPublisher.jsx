@@ -3,12 +3,27 @@ import Marquee from 'react-fast-marquee';
 const AllPublisher = () => {
     const [newPublisher, setNewPublisher] = useState([]);
 
-    useEffect(() => {
-        fetch("https://the-news-hunter-server-lac.vercel.app/publisher")
-            .then((res) => res.json())
-            .then((data) => setNewPublisher(data));
-    }, []);
+    // useEffect(() => {
+    //     fetch("https://the-news-hunter-server-lac.vercel.app/publisher")
+    //         .then((res) => res.json())
+    //         .then((data) => setNewPublisher(data));
+    // }, []);
 
+    useEffect(() => {
+        const fetchPublisher = async () => {
+            try {
+                const response = await fetch("https://the-news-hunter-server-lac.vercel.app/publisher");
+                const data = await response.json();
+                const filteredPublisher = data.filter(publisher => publisher.status === 'approved');
+                setNewPublisher(filteredPublisher);
+                console.log(filteredPublisher);
+            } catch (error) {
+                console.error('Error fetching publisher:', error);
+            }
+        }
+        fetchPublisher();   
+
+    }, []);
     return (
         <div className="my-20 mx-10">
             <h1 className="text-4xl md:text-5xl font-bold text-center text-sky-600 mb-10">Publishers</h1>
