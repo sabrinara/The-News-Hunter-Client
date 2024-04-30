@@ -10,6 +10,7 @@
 - With User, Editor, and Admin Panel.
 - Also with a subscription method 
 - Only Subscribed users can see Premium articles.
+- Normal users can request to become editor, if admin approved they can become editor then.
 - Editor can add news(article).
 - Also Editor can see their added article.
 - Admin can manage Users and Editor.
