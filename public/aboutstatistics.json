@@ -16,6 +16,24 @@
         "name": "Premimum Users",
         "number": 35,
         "image": "https://i.ibb.co/MNvLxLS/premium.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Publisher",
+        "number": 10,
+        "image": "https://i.ibb.co/6QYXWv9/active.jpg"
+    },
+    {
+        "id": 5,
+        "name": "All News",
+        "number": 50,
+        "image": "https://i.ibb.co/6QYXWv9/active.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Premium News",
+        "number": 10,
+        "image": "https://i.ibb.co/6QYXWv9/active.jpg"
     }
   
 ]

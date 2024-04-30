@@ -44,7 +44,7 @@ const Contact = () => {
             </Helmet>
             <div className="flex flex-col md:flex-row-reverse  items-center justify-between mt-0">
                 <div className="w-full md:w-1/3 mx-10 text-center md:text-start">
-                    <h1 className="text-3xl md:text-5xl font-bold text-cyan-600 mt-10 ">Contact Us</h1>
+                    <h1 className="text-3xl md:text-5xl font-bold text-cyan-600 ">Contact Us</h1>
                     <p className="text-sm  my-2 text-cyan-600">Get in touch with us. We will respond as soon as possible.</p>
                     <p className="text-sm  my-2 text-cyan-600">Reach Out for any type of Inquiries, or Just to Say Hi!</p>
                     <p className="text-sm  my-2 text-cyan-600">Send us a message!</p>
