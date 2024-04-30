@@ -17,7 +17,11 @@
 - Admin can make users, admin also editors.
 
 ### Resources & Credits
-React Icons -> React Icons Alert -> Sweet alert React Router Dom -> React Router Dom React Hook Form -> React Hook Form Axios -> Axios
+React Icons ->[React Icons]('https://react-icons.github.io/react-icons/')
+Alert -> [Sweet alert]('https://sweetalert2.github.io/#download') 
+React Router Dom -> [React Router Dom]('https://reactrouter.com/en/main')
+React Hook Form -> [React Hook Form]('https://react-hook-form.com/get-started')
+Axios -> [Axios]('https://axios-http.com/docs/intro')
 
 ### Getting Started
 To run The News Hunter locally, follow these steps:
