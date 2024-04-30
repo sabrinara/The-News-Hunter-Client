@@ -13,7 +13,7 @@ const NavBar = ({ toggleTheme }) => {
                 console.error(error);
             });
     }
-    console.log('user' ,user)
+    console.log('user', user)
     const navStyle = ({ isActive }) => ({
         backgroundColor: isActive && "rgb(2 132 199)",
         color: isActive ? "white" : "rgb(2 132 199)",
@@ -31,7 +31,7 @@ const NavBar = ({ toggleTheme }) => {
                 <NavLink to="/" style={navStyle} >Home</NavLink>
             </li>
             <li>
-                <NavLink to ="/about" style={navStyle}>About</NavLink>
+                <NavLink to="/about" style={navStyle}>About</NavLink>
             </li>
             <li>
                 <NavLink to="/contact" style={navStyle}>Contact</NavLink>
@@ -48,13 +48,16 @@ const NavBar = ({ toggleTheme }) => {
                     <li>
                         <NavLink to="/subscriptions" style={navStyle}>Subscription</NavLink>
                     </li>
-
-                    <li>
-                        <NavLink to="/addarticle" style={navStyle}>Add Article</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/myarticles" style={navStyle}>My Articles</NavLink>
-                    </li>
+                    {(role === "admin" || role === "editor") &&
+                        <>
+                            <li>
+                                <NavLink to="/addarticle" style={navStyle}>Add Article</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/myarticles" style={navStyle}>My Articles</NavLink>
+                            </li>
+                        </>
+                    }
                     {
                         role === "admin" &&
                         <>
