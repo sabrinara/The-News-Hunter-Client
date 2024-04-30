@@ -11,9 +11,9 @@ const AritcleCard = ({ article }) => {
     return (
         <div>
 
-            <div className="flex flex-col md:flex-row md:h-[58vh] rounded bg-base-100 shadow-2xl justify-between items-center">
-                <figure className="w-full h-[36vh] md:h-[58vh] md:w-1/2 ">
-                    <img className="w-full h-[36vh] md:h-[58vh] md:max-w-none rounded" src={image} />
+            <div className="flex flex-col md:flex-row md:h-[54vh] rounded bg-base-100 shadow-2xl justify-between items-center">
+                <figure className="w-full h-[36vh] md:h-[54vh] md:w-1/2 ">
+                    <img className="w-full h-[36vh] md:h-[54vh] md:max-w-none rounded" src={image} />
                 </figure>
                 <div className="pt-3 md:pt-5 px-5 md:w-1/2">
                     <h1 className="text-2xl md:text-3xl font-bold text-sky-600">{title.substring(0, 20)}</h1>
@@ -47,14 +47,14 @@ const AritcleCard = ({ article }) => {
                         <Link to={`/details/${_id}`} className="md:mt-2">
                             {role === "admin" ? (
                                 <button
-                                    className="px-2 py-1 md:px-4 md:py-2 rounded text-white hover:text-white bg-sky-600 hover:bg-sky-500"
+                                    className="px-2 py-1 mb-2 rounded text-white hover:text-white bg-sky-600 hover:bg-sky-500"
                                 >
                                     View Details
                                 </button>
                             ) : (
                                 <button
                                     disabled={status === "premium"}
-                                    className={`px-2 py-1 md:px-4 md:py-2 rounded text-white hover:text-white ${status === "premium" ? "bg-gray-400" : "bg-sky-600 hover:bg-sky-500"
+                                    className={`px-2 py-1 mb-2 rounded text-white hover:text-white ${status === "premium" ? "bg-gray-400" : "bg-sky-600 hover:bg-sky-500"
                                         }`}
                                 >
                                     View Details
