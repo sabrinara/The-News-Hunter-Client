@@ -16,6 +16,7 @@
 - Admin can manage Users and Editor.
 - Admin can approve, deny, or make news premium.
 - Admin can make users, admin also editors.
+- Used imgbb to make uploaded file image turn into URL.
 
 ### Resources & Credits
 React Icons ->[React Icons](https://react-icons.github.io/react-icons/)
@@ -23,6 +24,7 @@ Alert -> [Sweet alert](https://sweetalert2.github.io/#download)
 React Router Dom -> [React Router Dom](https://reactrouter.com/en/main)
 React Hook Form -> [React Hook Form](https://react-hook-form.com/get-started)
 Axios -> [Axios](https://axios-http.com/docs/intro)
+
 
 ### Getting Started
 To run The News Hunter locally, follow these steps:
