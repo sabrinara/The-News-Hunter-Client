@@ -43,7 +43,7 @@ const SliderNews = () => {
                                         <Link to='/allarticles' className='bg-gradient-to-r from-sky-700 to-sky-400 hover:from-sky-400 hover:to-sky-700 text-white font-semibold px-6 py-3 rounded-md mb-4'>Explore More</Link>
                                     </div>
                                     <div className="md:w-1/2">
-                                        <img src={"https://i.ibb.co/hR4Rtg9/news2.jpg"} alt="Bussiness" className="h-56 md:h-[400px] rounded-lg" />
+                                        <img src="./images/news/news2.jpg" alt="Bussiness" className="h-56 md:h-[400px] rounded-lg" />
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@ const SliderNews = () => {
                                         <Link to='/allarticles' className='bg-gradient-to-r from-sky-700 to-sky-400 hover:from-sky-400 hover:to-sky-700 text-white font-semibold px-6 py-3 rounded-md mb-4'>Explore More</Link>
                                     </div>
                                     <div className="md:w-1/2">
-                                        <img src={"https://i.ibb.co/RvgPysn/News3.jpg"} alt="Explotion" className="h-56 md:h-[400px] rounded-lg" />
+                                        <img src="./images/news/news.jpg" alt="Explotion" className="h-56 md:h-[400px] rounded-lg" />
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@ const SliderNews = () => {
                                         <Link to='/allarticles' className='bg-gradient-to-r from-sky-700 to-sky-400 hover:from-sky-400 hover:to-sky-700 text-white font-semibold px-6 py-3 rounded-md mb-4 '>Explore More</Link>
                                     </div>
                                     <div className="md:w-1/2">
-                                        <img src={"https://i.ibb.co/xFXqfQN/news4.jpg"} alt="Polution" className="h-56 md:h-[400px] rounded-lg" />
+                                        <img src="./images/news/news3.jpg" alt="Polution" className="h-56 md:h-[400px] rounded-lg" />
                                     </div>
                                 </div>
                             </div>

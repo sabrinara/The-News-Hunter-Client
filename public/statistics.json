@@ -3,19 +3,19 @@
         "id": 1,
         "name": "All Users",
         "number": 75,
-        "image": "https://i.ibb.co/8PdZxD7/ALL.jpg"
+        "image": "./images/users/all_users.jpg"
     },
     {
         "id": 2,
         "name": "Normal Users",
         "number": 40,
-        "image": "https://i.ibb.co/5GyxXkZ/normal.jpg"
+        "image": "./images/users/normaluser.jpg"
     },
     {
         "id": 3,
         "name": "Premimum Users",
         "number": 35,
-        "image": "https://i.ibb.co/MNvLxLS/premium.jpg"
+        "image": "./images/users/premium (1).jpg"
     }
   
 ]

@@ -1,6 +1,4 @@
-
 import { useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 
 const Subscription = () => {
@@ -62,7 +60,7 @@ if(subscriptionPeriod === 1){
                    <p className="text-lg md:text-3xl text-emerald-900">Subscribe to explore more exclusive news.</p>
                </div>
                <div>
-                   <img src={"https://i.ibb.co/C5Sg3cW/subscribe.png"} alt="" />
+                   <img src="./images/news/subscribe.png" alt="" />
                </div>
            </div>
 
@@ -81,7 +79,7 @@ if(subscriptionPeriod === 1){
 
           <button
             onClick={handleSubscription}
-            className="mt-4 mx-40 bg-blue-500 text-white px-4 py-3 text-center rounded-md hover:bg-blue-600 focus:outline-none"
+            className="my-4 mx-32 bg-blue-500 text-white px-4 py-3 text-center rounded-md hover:bg-blue-600 focus:outline-none"
             disabled={subscribed}
           >
             {subscribed ? 'Subscribed' : 'Subscribe Now'}
