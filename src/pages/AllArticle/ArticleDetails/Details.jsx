@@ -93,8 +93,8 @@ const Details = () => {
                         <h1 className="text-5xl font-bold text-sky-600">{title}</h1>
                         <div className="flex items-center justify-between gap-4 my-2">
                             <div className="flex items-center gap-4 my-2">
-                                <img src={publisher.image} className="w-20  h-20 border-4 border-b-orange-600 rounded-full " alt="Publisher" />
-                                <p className="font-bold text-xl">{publisher.name}</p>
+                                <img src={publisher?.image} className="w-20  h-20 border-4 border-b-orange-600 rounded-full " alt="Publisher" />
+                                <p className="font-bold text-xl">{publisher?.name}</p>
 
                             </div>
                             <div className="flex flex-wrap gap-2 text-sm mt-2">

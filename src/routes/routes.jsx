@@ -59,7 +59,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/details/:id",
-                element: <Details></Details>
+                element: <PrivateRouters><Details></Details></PrivateRouters>
             },
             {
                 path: "/subscriptions",
