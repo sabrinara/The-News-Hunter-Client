@@ -21,7 +21,7 @@ const AritcleCard = ({ article }) => {
 
                     <div className="flex flex-wrap gap-2 text-sm mt-2">
 
-                        {tags?.map((tag, index) => (
+                        {tags?.slice(0, 3).map((tag, index) => (
                             <span
                                 key={index}
                                 className="bg-cyan-700 text-white px-1 py-0.5 rounded"
